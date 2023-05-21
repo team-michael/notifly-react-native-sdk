@@ -1,6 +1,8 @@
 # notifly-sdk
 
-Notifly React Native SDK
+Work in progress - built with https://github.com/callstack/react-native-builder-bob
+
+Notifly React Native SDK 
 
 ## Installation
 
