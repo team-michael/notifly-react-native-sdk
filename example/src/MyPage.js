@@ -35,7 +35,7 @@ function MyPage({ navigation }) {
           color="#841584"
         />
       </View>
-      <Text style={styles.padding}></Text>
+      <Text style={styles.padding} />
       <Text style={styles.label}>Key</Text>
       <TextInput
         style={styles.input}
