@@ -27,3 +27,11 @@ const NotiflySdk = NotiflySdkModule
 export function multiply(a: number, b: number): Promise<number> {
   return NotiflySdk.multiply(a, b);
 }
+
+export function initialize(
+  projectId: string,
+  username: string,
+  password: string
+): Promise<void> {
+  return NotiflySdk.initialize(projectId, username, password);
+}
