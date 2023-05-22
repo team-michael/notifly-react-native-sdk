@@ -1,9 +1,9 @@
 package com.notiflysdk
 
-import android.content.Context
 import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.Promise
 import tech.notifly.Notifly
 
@@ -37,6 +37,18 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     try {
       Log.d("NotiflySdkModule", "Notifly setUserId call")
       Notifly.setUserId(reactContext, userId)
+      promise.resolve(null)
+    } catch (e: Exception) {
+      promise.reject(e)
+    }
+  }
+
+  @ReactMethod
+  override fun setUserProperties(params: ReadableMap, promise: Promise) {
+    try {
+      Log.d("NotiflySdkModule", "Notifly setUserProperties call")
+      val mapParams = params.toHashMap()
+      Notifly.setUserProperties(reactContext, mapParams)
       promise.resolve(null)
     } catch (e: Exception) {
       promise.reject(e)
