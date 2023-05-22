@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, View, Text, TextInput, StyleSheet } from 'react-native';
+import notifly from 'notifly-sdk';
 
 function MyPage({ navigation }) {
   const [userID, setUserID] = useState(undefined);
@@ -8,11 +9,11 @@ function MyPage({ navigation }) {
 
   const handleClickSetUserId = async () => {
     console.log('userID', userID);
-    //await notifly.setUserId(userID);
+    await notifly.setUserId(userID);
   };
   const handleRemoveUserId = async () => {
     console.log('handleRemoveUserId');
-    // await notifly.setUserId();
+    await notifly.setUserId();
   };
   const handleClickSetUserProperties = async () => {
     console.log('handleClickSetUserProperties');
@@ -23,6 +24,7 @@ function MyPage({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>This is MyPage</Text>
+      <Text>Current userID: {userID}</Text>
       <TextInput
         style={styles.input}
         value={userID}

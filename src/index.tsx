@@ -36,8 +36,13 @@ export function initialize(
   return NotiflySdk.initialize(projectId, username, password);
 }
 
+export function setUserId(userId: string | undefined): Promise<void> {
+  return NotiflySdk.setUserId(userId);
+}
+
 const notifly = {
   initialize,
+  setUserId,
 };
 
 export default notifly;
