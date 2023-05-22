@@ -1,5 +1,6 @@
-import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import messaging from '@react-native-firebase/messaging';
 
 const handleClick = async () => {
   console.log('handleClick');
@@ -7,8 +8,20 @@ const handleClick = async () => {
 };
 
 function LoginComponent({ navigation }) {
+  const [fcmToken, setFcmToken] = useState('');
+
+  useEffect(() => {
+    messaging()
+      .getToken()
+      .then((token) => {
+        console.log('FCM token', token);
+        setFcmToken(token);
+      });
+  }, []);
+
   return (
     <View style={styles.container}>
+      <Text>FCM Token: {fcmToken}</Text>
       <View style={styles.button}>
         <Button
           title="LoginPage_visit"
