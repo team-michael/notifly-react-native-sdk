@@ -1,5 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
-import { type UserProperties } from './types';
+import { type UserProperties, type EventProperties } from './types';
 
 const LINKING_ERROR =
   `The package 'notifly-sdk' doesn't seem to be linked. Make sure: \n\n` +
@@ -45,10 +45,25 @@ export function setUserProperties(properties: UserProperties): Promise<void> {
   return NotiflySdk.setUserProperties(properties);
 }
 
+export function trackEvent(
+  eventName: string,
+  eventParams: EventProperties | null | undefined = undefined,
+  segmentation_event_param_keys: string[] | undefined | null = null,
+  isInternalEvent: boolean = false
+): Promise<void> {
+  return NotiflySdk.trackEvent(
+    eventName,
+    eventParams,
+    segmentation_event_param_keys,
+    isInternalEvent
+  );
+}
+
 const notifly = {
   initialize,
   setUserId,
   setUserProperties,
+  trackEvent,
 };
 
 export default notifly;

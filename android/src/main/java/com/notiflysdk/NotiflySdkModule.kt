@@ -3,6 +3,7 @@ package com.notiflysdk
 import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.Promise
 import tech.notifly.Notifly
@@ -53,6 +54,32 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     } catch (e: Exception) {
       promise.reject(e)
     }
+  }
+
+  @ReactMethod
+  override fun trackEvent(
+    eventName: String,
+    eventParams: ReadableMap?,
+    segmentationEventParamKeys: ReadableArray?,
+    isInternalEvent: Boolean,
+    promise: Promise
+  ) {
+    try {
+      Log.d("NotiflySdkModule", "Notifly trackEvent call")
+      val mapParams = eventParams?.toHashMap() ?: emptyMap<String, Any?>()
+      val listKeys = segmentationEventParamKeys?.toArrayList()?.map { it.toString() }
+      Notifly.trackEvent(
+        reactContext,
+        eventName,
+        mapParams,
+        listKeys,
+        isInternalEvent
+      )
+      promise.resolve(null)
+    } catch (e: Exception) {
+      promise.reject(e)
+    }
+
   }
 
   companion object {
