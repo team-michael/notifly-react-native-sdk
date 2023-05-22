@@ -26,9 +26,20 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     try {
       Log.d("NotiflySdkModule", "Notifly initialize call")
       Notifly.initialize(reactContext, projectId, username, password)
-      promise.resolve("Initialization completed") // Pass the result you want to send back to the JS environment
+      promise.resolve(null)
     } catch (e: Exception) {
-      promise.reject(e) // Pass the error back to the JS environment if any occurred
+      promise.reject(e)
+    }
+  }
+
+  @ReactMethod
+  override fun setUserId(userId: String?, promise: Promise) {
+    try {
+      Log.d("NotiflySdkModule", "Notifly setUserId call")
+      Notifly.setUserId(reactContext, userId)
+      promise.resolve(null)
+    } catch (e: Exception) {
+      promise.reject(e)
     }
   }
 

@@ -10,4 +10,5 @@ abstract class NotiflySdkSpec internal constructor(context: ReactApplicationCont
 
   abstract fun multiply(a: Double, b: Double, promise: Promise)
   abstract fun initialize(projectId: String, username: String, password: String, promise: Promise)
+  abstract fun setUserId(userId: String?, promise: Promise)
 }
