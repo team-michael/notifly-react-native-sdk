@@ -1,4 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
+import { type UserProperties } from './types';
 
 const LINKING_ERROR =
   `The package 'notifly-sdk' doesn't seem to be linked. Make sure: \n\n` +
@@ -40,9 +41,14 @@ export function setUserId(userId: string | undefined): Promise<void> {
   return NotiflySdk.setUserId(userId);
 }
 
+export function setUserProperties(properties: UserProperties): Promise<void> {
+  return NotiflySdk.setUserProperties(properties);
+}
+
 const notifly = {
   initialize,
   setUserId,
+  setUserProperties,
 };
 
 export default notifly;

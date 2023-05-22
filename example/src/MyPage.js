@@ -16,10 +16,10 @@ function MyPage({ navigation }) {
     await notifly.setUserId();
   };
   const handleClickSetUserProperties = async () => {
-    console.log('handleClickSetUserProperties');
-    /* await notifly.setUserProperties({
+    console.log(`handleClickSetUserProperties ${key}: ${value}`);
+    await notifly.setUserProperties({
       [key]: value,
-    }); */
+    });
   };
   return (
     <View style={styles.container}>
