@@ -7,7 +7,8 @@ export interface Spec extends TurboModule {
   initialize(
     projectId: string,
     username: string,
-    password: string
+    password: string,
+    useCustomClickHandler: boolean | undefined
   ): Promise<void>;
   setUserId(userId: string | undefined): Promise<void>;
   setUserProperties(userProperties: UserProperties): Promise<void>;
@@ -17,6 +18,8 @@ export interface Spec extends TurboModule {
     segmentation_event_param_keys: string[] | undefined | null,
     isInternalEvent: boolean
   ): Promise<void>;
+  notiflyBackgroundHandler(_remoteMessage: any): Promise<void>;
+  setNotificationOpenedHandler(): Promise<void>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('NotiflySdk');
