@@ -8,3 +8,11 @@ Link to get the `google-services.json`: [Firebase Project Settings](https://cons
 ```
 yarn example android
 ```
+
+
+### iOS
+
+```
+cd ios
+pod install
+```
