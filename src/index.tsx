@@ -32,8 +32,15 @@ export function multiply(a: number, b: number): Promise<number> {
 export function initialize(
   projectId: string,
   username: string,
-  password: string
+  password: string,
+  useCustomClickHandler: boolean | undefined = undefined
 ): Promise<void> {
+  // @deprecated useCustomClickHandler is deprecated since version 2.3.0
+  if (typeof useCustomClickHandler !== 'undefined') {
+    console.warn(
+      'Warning: useCustomClickHandler of notifly.initialize is deprecated and will be removed in the next major release.'
+    );
+  }
   return NotiflySdk.initialize(projectId, username, password);
 }
 
@@ -59,11 +66,33 @@ export function trackEvent(
   );
 }
 
+/**
+ * @deprecated Since version 2.3.0.
+ */
+export function notiflyBackgroundHandler(_remoteMessage: any): Promise<void> {
+  console.warn(
+    'Warning: notifly.notiflyBackgroundHandler(remoteMessage) is deprecated and will be removed in the next major release. You do not need to call this method anymore. remoteMessage is now handled automatically.'
+  );
+  return Promise.resolve();
+}
+
+/**
+ * @deprecated Since version 2.3.0.
+ */
+export function setNotiflyBackgroundMessageHandler(): Promise<void> {
+  console.warn(
+    'Warning: notifly.setNotiflyBackgroundMessageHandler() is deprecated and will be removed in the next major release. You do not need to call this method anymore. remoteMessage is now handled automatically.'
+  );
+  return Promise.resolve();
+}
+
 const notifly = {
   initialize,
   setUserId,
   setUserProperties,
   trackEvent,
+  notiflyBackgroundHandler,
+  setNotiflyBackgroundMessageHandler,
 };
 
 export default notifly;
