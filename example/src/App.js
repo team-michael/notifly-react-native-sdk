@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import messaging from '@react-native-firebase/messaging';
-import { multiply } from 'notifly-sdk';
+// import messaging from '@react-native-firebase/messaging';
+// import { multiply } from 'notifly-sdk';
 
 import LoginPage from './LoginPage';
 import HomePage from './HomePage';
@@ -23,16 +23,16 @@ const linking = {
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [result, setResult] = React.useState(null);
+  // const [result, setResult] = React.useState(null);
 
-  React.useEffect(() => {
-    const requestPermission = async () => {
-      await messaging().requestPermission();
-    };
-    requestPermission();
-    multiply(3, 7).then(setResult);
-    console.log('multiply result', result);
-  }, [result]);
+  // React.useEffect(() => {
+  //   const requestPermission = async () => {
+  //     await messaging().requestPermission();
+  //   };
+  //   requestPermission();
+  //   multiply(3, 7).then(setResult);
+  //   console.log('multiply result', result);
+  // }, [result]);
 
   return (
     <NavigationContainer linking={linking}>
