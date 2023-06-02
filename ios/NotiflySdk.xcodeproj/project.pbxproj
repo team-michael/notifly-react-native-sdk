@@ -6,10 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		5E555C0D2413F4C50049A1A2 /* NotiflySdk.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* NotiflySdk.m */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -25,7 +21,9 @@
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libNotiflySdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNotiflySdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* NotiflySdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiflySdk.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* NotiflySdk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiflySdk.m; sourceTree = "<group>"; };
+		F2465FF22A29E3CC000648F6 /* NotiflySdk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotiflySdk.mm; sourceTree = "<group>"; };
+		F2465FF42A29E3E9000648F6 /* NotiflySdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiflySdk.swift; sourceTree = "<group>"; };
+		F2465FF52A29E4BA000648F6 /* NotiflySdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotiflySdk-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +48,10 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				F2465FF52A29E4BA000648F6 /* NotiflySdk-Bridging-Header.h */,
+				F2465FF42A29E3E9000648F6 /* NotiflySdk.swift */,
+				F2465FF22A29E3CC000648F6 /* NotiflySdk.mm */,
 				B3E7B5881CC2AC0600A0062D /* NotiflySdk.h */,
-				B3E7B5891CC2AC0600A0062D /* NotiflySdk.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,7 +113,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* NotiflySdk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
