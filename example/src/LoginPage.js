@@ -11,12 +11,13 @@ function LoginComponent({ navigation }) {
   const [fcmToken, setFcmToken] = useState('');
 
   useEffect(() => {
-    messaging()
-      .getToken()
-      .then((token) => {
-        console.log('FCM token', token);
-        setFcmToken(token);
-      });
+    // messaging()
+      // .getToken()
+      // .then((token) => {
+        // console.log('FCM token', token);
+        // setFcmToken(token);
+      // });
+    console.log("😀 HI")
   }, []);
 
   return (
