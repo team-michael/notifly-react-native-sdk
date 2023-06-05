@@ -2,20 +2,20 @@ import * as React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import messaging from '@react-native-firebase/messaging';
+// import messaging from '@react-native-firebase/messaging';
 import { multiply } from 'notifly-sdk';
 
 import LoginPage from './LoginPage';
-import HomePage from './HomePage';
-import MyPage from './MyPage';
+// import HomePage from './HomePage';
+// import MyPage from './MyPage';
 
 const linking = {
   prefixes: ['pushnotiflyrn://'],
   config: {
     screens: {
       Login: 'Login',
-      Home: 'Home',
-      MyPage: 'MyPage',
+      // Home: 'Home',
+      // MyPage: 'MyPage',
     },
   },
 };
@@ -27,7 +27,7 @@ export default function App() {
 
   React.useEffect(() => {
     const requestPermission = async () => {
-      await messaging().requestPermission();
+      // await messaging().requestPermission();
     };
     requestPermission();
     multiply(3, 7).then(setResult);
@@ -38,8 +38,8 @@ export default function App() {
     <NavigationContainer linking={linking}>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen component={LoginPage} name="Login" />
-        <Stack.Screen component={HomePage} name="Home" />
-        <Stack.Screen component={MyPage} name="MyPage" />
+        {/* <Stack.Screen component={HomePage} name="Home" /> */}
+        {/* <Stack.Screen component={MyPage} name="MyPage" /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

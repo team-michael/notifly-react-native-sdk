@@ -24,9 +24,9 @@ end
 target 'NotiflySdkExample' do
   config = use_native_modules!
   use_frameworks! :linkage => :static
-  $RNFirebaseAsStaticFramework = true
-  pod 'GoogleUtilities', :modular_headers => true
-  pod 'FirebaseCore', :modular_headers => true
+   $RNFirebaseAsStaticFramework = true
+   pod 'GoogleUtilities', :modular_headers => true
+   pod 'FirebaseCore', :modular_headers => true
 
   # Flags change depending on the env values.
   flags = get_default_flags()
