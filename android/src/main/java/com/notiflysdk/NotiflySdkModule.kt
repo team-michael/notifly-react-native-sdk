@@ -66,7 +66,6 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     eventName: String,
     eventParams: ReadableMap?,
     segmentationEventParamKeys: ReadableArray?,
-    isInternalEvent: Boolean,
     promise: Promise
   ) {
     try {
@@ -78,7 +77,6 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
         eventName,
         mapParams,
         listKeys,
-        isInternalEvent
       )
       promise.resolve(null)
     } catch (e: Exception) {

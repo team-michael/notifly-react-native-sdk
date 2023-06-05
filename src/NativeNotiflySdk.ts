@@ -15,8 +15,7 @@ export interface Spec extends TurboModule {
   trackEvent(
     eventName: string,
     eventParams: EventProperties | null | undefined,
-    segmentation_event_param_keys: string[] | undefined | null,
-    isInternalEvent: boolean
+    segmentationEventParamKeys: string[] | undefined | null
   ): Promise<void>;
   notiflyBackgroundHandler(_remoteMessage: any): Promise<void>;
   setNotificationOpenedHandler(): Promise<void>;
