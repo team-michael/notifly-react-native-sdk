@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "13.0" }
   s.source       = { :git => "https://github.com/team-michael/notifly-react-native-sdk.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,m,mm}"
+  s.source_files = "ios/**/*.{h,m,mmm,swift}"
 
   s.dependency "React-Core"
 
@@ -31,6 +31,6 @@ Pod::Spec.new do |s|
     s.dependency "RCTRequired"
     s.dependency "RCTTypeSafety"
     s.dependency "ReactCommon/turbomodule/core"
-    s.dependency "notifly_sdk", "1.0.1"
   end
+  s.dependency "notifly_sdk", "1.0.1"
 end
