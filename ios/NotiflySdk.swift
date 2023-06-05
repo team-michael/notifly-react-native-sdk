@@ -13,7 +13,7 @@ class NotiflySdk: NSObject {
     func initialize(projectId: String, username: String, password: String, resolve:RCTPromiseResolveBlock, reject:RCTPromiseRejectBlock) -> Void {
         Notifly.setSdkType(type: "react_native")
         Notifly.setSdkVersion(version: "1.0.0") // TODO: get version from package.json
-        Notifly.initialize(projectID: projectId, username: username, password: password)
+        Notifly.initialize(projectId: projectId, username: username, password: password)
         resolve(nil)
     }
 

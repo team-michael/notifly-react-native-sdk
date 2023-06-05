@@ -10,7 +10,7 @@ import MyPage from './MyPage';
 import EventPage from './EventPage';
 
 const linking = {
-  prefixes: ['pushnotiflyrn://'],
+  prefixes: ['pushnotiflyrn2://'],
   config: {
     screens: {
       Login: 'Login',
