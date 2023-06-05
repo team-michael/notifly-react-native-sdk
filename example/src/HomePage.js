@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
-// import notifly from 'notifly-sdk';
+import notifly from 'notifly-sdk';
 
 const handleClick = async (eventName) => {
-  // await notifly.trackEvent(eventName);
+  await notifly.trackEvent(eventName);
   console.log('eventName', eventName);
 };
 
@@ -88,6 +88,16 @@ function HomePage({ navigation }) {
           title="Go to MyPage"
           onPress={() => {
             navigation.navigate('MyPage');
+          }}
+          buttonStyle={styles.button}
+          color="#000000"
+        />
+      </View>
+      <View style={styles.button}>
+        <Button
+          title="Go to EventPage"
+          onPress={() => {
+            navigation.navigate('EventPage');
           }}
           buttonStyle={styles.button}
           color="#000000"

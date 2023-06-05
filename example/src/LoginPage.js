@@ -4,20 +4,19 @@ import messaging from '@react-native-firebase/messaging';
 
 const handleClick = async () => {
   console.log('handleClick');
-  // await notifly.trackEvent('loginpage_visit');
+  await notifly.trackEvent('loginpage_visit');
 };
 
 function LoginComponent({ navigation }) {
   const [fcmToken, setFcmToken] = useState('');
 
   useEffect(() => {
-    // messaging()
-      // .getToken()
-      // .then((token) => {
-        // console.log('FCM token', token);
-        // setFcmToken(token);
-      // });
-    console.log("😀 HI")
+    messaging()
+      .getToken()
+      .then((token) => {
+        console.log('FCM token', token);
+        setFcmToken(token);
+      });
   }, []);
 
   return (

@@ -55,14 +55,12 @@ export function setUserProperties(properties: UserProperties): Promise<void> {
 export function trackEvent(
   eventName: string,
   eventParams: EventProperties | null | undefined = undefined,
-  segmentation_event_param_keys: string[] | undefined | null = null,
-  isInternalEvent: boolean = false
+  segmentationEventParamKeys: string[] | undefined | null = null
 ): Promise<void> {
   return NotiflySdk.trackEvent(
     eventName,
     eventParams,
-    segmentation_event_param_keys,
-    isInternalEvent
+    segmentationEventParamKeys
   );
 }
 

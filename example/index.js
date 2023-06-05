@@ -4,12 +4,12 @@ import { name as appName } from './app.json';
 import { NOTIFLY_PROJECT_ID, NOTIFLY_USERNAME, NOTIFLY_PASSWORD } from '@env';
 import notifly from 'notifly-sdk';
 
-// notifly.initialize(
-  // NOTIFLY_PROJECT_ID,
-  // NOTIFLY_USERNAME,
-  // NOTIFLY_PASSWORD,
-//   false
-// );
+notifly.initialize(
+  NOTIFLY_PROJECT_ID,
+  NOTIFLY_USERNAME,
+  NOTIFLY_PASSWORD,
+  false
+);
 // deprecated method call test
 // notifly.setNotiflyBackgroundMessageHandler();
 AppRegistry.registerComponent(appName, () => App);

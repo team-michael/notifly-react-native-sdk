@@ -18,7 +18,6 @@ abstract class NotiflySdkSpec internal constructor(context: ReactApplicationCont
     eventName: String,
     params: ReadableMap?,
     segmentationEventParamKeys: ReadableArray?,
-    isInternalEvent: Boolean,
     promise: Promise,
   )
 }
