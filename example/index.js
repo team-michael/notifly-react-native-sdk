@@ -11,5 +11,5 @@ notifly.initialize(
   false
 );
 // deprecated method call test
-// notifly.setNotiflyBackgroundMessageHandler();
+notifly.setNotiflyBackgroundMessageHandler();
 AppRegistry.registerComponent(appName, () => App);
