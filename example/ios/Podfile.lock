@@ -126,9 +126,9 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - notifly_react_native_sdk (0.1.0):
-    - notifly_sdk (= 1.0.2)
+    - notifly_sdk (= 1.0.1)
     - React-Core
-  - notifly_sdk (1.0.2):
+  - notifly_sdk (1.0.1):
     - Firebase/Core
     - FirebaseMessaging
   - PromisesObjC (2.2.0)
@@ -654,8 +654,8 @@ SPEC CHECKSUMS:
   hermes-engine: 47986d26692ae75ee7a17ab049caee8864f855de
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
-  notifly_react_native_sdk: d20ccd6cc40015fd2242a620a2dc12d7d596b643
-  notifly_sdk: e27379b5850e0b65e1ae1039a1c9708899dfa2e3
+  notifly_react_native_sdk: f98f6bc4a726fb4634e91349783e7486ddc80d3d
+  notifly_sdk: 3bf9d8144c356e369231819ec4f900bc80fdaa60
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: 8af6a32dfc2b65ec82193c2dee6e1011ff22ac2a

@@ -3,7 +3,6 @@
 #import <UserNotifications/uNUserNotificationCenter.h>
 #import "AppDelegate.h"
 #import "notifly_sdk-Swift.h"
-
 #import <React/RCTLinkingManager.h> // for linking
 
 @implementation AppDelegate
@@ -12,14 +11,10 @@
   self.moduleName = @"NotiflySdkExample";
   self.initialProps = @{};
   [FIRApp configure];
-  
-  /* Required */
-  
+    
   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
   center.delegate = self;
   [[UIApplication sharedApplication] registerForRemoteNotifications];
-  
-  /* Required */
   
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
@@ -45,6 +40,14 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)(void))completionHandler {
   [Notifly userNotificationCenter:center didReceive:response];
   completionHandler();
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+       willPresentNotification:(UNNotification *)notification
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+   [Notifly userNotificationCenter:center
+                       willPresent:notification
+             withCompletionHandler:completionHandler];
 }
 
 - (BOOL)application:(UIApplication *)application
