@@ -64,6 +64,14 @@ export function trackEvent(
   );
 }
 
+export function setLogLevel(logLevel: number): Promise<void> {
+  // only implemented on Android
+  if (Platform.OS === 'android') {
+    return NotiflySdk.setLogLevel(logLevel);
+  }
+  return Promise.resolve();
+}
+
 /**
  * @deprecated Since version 2.3.0.
  */
@@ -89,6 +97,7 @@ const notifly = {
   setUserId,
   setUserProperties,
   trackEvent,
+  setLogLevel,
   notiflyBackgroundHandler,
   setNotiflyBackgroundMessageHandler,
 };

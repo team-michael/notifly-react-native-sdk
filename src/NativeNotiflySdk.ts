@@ -17,6 +17,7 @@ export interface Spec extends TurboModule {
     eventParams: EventProperties | null | undefined,
     segmentationEventParamKeys: string[] | undefined | null
   ): Promise<void>;
+  setLogLevel(logLevel: number): Promise<void>;
   notiflyBackgroundHandler(_remoteMessage: any): Promise<void>;
   setNotificationOpenedHandler(): Promise<void>;
 }

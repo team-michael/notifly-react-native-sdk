@@ -20,4 +20,5 @@ abstract class NotiflySdkSpec internal constructor(context: ReactApplicationCont
     segmentationEventParamKeys: ReadableArray?,
     promise: Promise,
   )
+  abstract fun setLogLevel(logLevel: Int, promise: Promise)
 }

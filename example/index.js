@@ -10,6 +10,7 @@ notifly.initialize(
   NOTIFLY_PASSWORD,
   false
 );
+notifly.setLogLevel(2);
 // deprecated method call test
 notifly.setNotiflyBackgroundMessageHandler();
 AppRegistry.registerComponent(appName, () => App);
