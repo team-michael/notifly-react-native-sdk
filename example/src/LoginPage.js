@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import messaging from '@react-native-firebase/messaging';
+import notifly from 'notifly-sdk';
 
 const handleClick = async () => {
   console.log('handleClick');

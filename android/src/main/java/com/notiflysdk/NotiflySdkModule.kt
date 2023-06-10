@@ -30,7 +30,10 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     try {
       Log.d("NotiflySdkModule", "Notifly initialize call")
       Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkType.REACT_NATIVE)
-      Notifly.setSdkVersion(NotiflyControlTokenImpl(), "2.3.0-beta.1") // TODO: get version from package.json
+      Notifly.setSdkVersion(
+        NotiflyControlTokenImpl(),
+        "2.3.0-beta.1"
+      ) // TODO: get version from package.json
       Notifly.initialize(reactContext, projectId, username, password)
       promise.resolve(null)
     } catch (e: Exception) {
@@ -83,6 +86,17 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       promise.reject(e)
     }
 
+  }
+
+  @ReactMethod
+  override fun setLogLevel(logLevel: Int, promise: Promise) {
+    try {
+      Log.d("NotiflySdkModule", "Notifly setLogLevel call")
+      Notifly.setLogLevel(logLevel)
+      promise.resolve(null)
+    } catch (e: Exception) {
+      promise.reject(e)
+    }
   }
 
   companion object {
