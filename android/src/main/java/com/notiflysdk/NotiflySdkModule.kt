@@ -28,11 +28,10 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   @ReactMethod
   override fun initialize(projectId: String, username: String, password: String, promise: Promise) {
     try {
-      Log.d("NotiflySdkModule", "Notifly initialize call")
       Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkType.REACT_NATIVE)
       Notifly.setSdkVersion(
         NotiflyControlTokenImpl(),
-        "2.3.0-beta.1"
+        "2.3.1"
       ) // TODO: get version from package.json
       Notifly.initialize(reactContext, projectId, username, password)
       promise.resolve(null)
@@ -44,7 +43,6 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   @ReactMethod
   override fun setUserId(userId: String?, promise: Promise) {
     try {
-      Log.d("NotiflySdkModule", "Notifly setUserId call")
       Notifly.setUserId(reactContext, userId)
       promise.resolve(null)
     } catch (e: Exception) {
@@ -55,7 +53,6 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   @ReactMethod
   override fun setUserProperties(params: ReadableMap, promise: Promise) {
     try {
-      Log.d("NotiflySdkModule", "Notifly setUserProperties call")
       val mapParams = params.toHashMap()
       Notifly.setUserProperties(reactContext, mapParams)
       promise.resolve(null)
@@ -72,7 +69,6 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     promise: Promise
   ) {
     try {
-      Log.d("NotiflySdkModule", "Notifly trackEvent call")
       val mapParams = eventParams?.toHashMap() ?: emptyMap<String, Any?>()
       val listKeys = segmentationEventParamKeys?.toArrayList()?.map { it.toString() }
       Notifly.trackEvent(
@@ -91,7 +87,6 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   @ReactMethod
   override fun setLogLevel(logLevel: Int, promise: Promise) {
     try {
-      Log.d("NotiflySdkModule", "Notifly setLogLevel call")
       Notifly.setLogLevel(logLevel)
       promise.resolve(null)
     } catch (e: Exception) {

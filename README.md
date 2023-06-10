@@ -1,16 +1,27 @@
-# notifly-sdk
+# Notifly React Native SDK
 
-Work in progress - built with https://github.com/callstack/react-native-builder-bob
+![npm](https://img.shields.io/npm/v/notifly-sdk)
+![Downloads](https://img.shields.io/npm/dt/notifly-sdk)
 
-Notifly React Native SDK
+_Notifly SDK for React Native_ is an easy-to-use package for integrating Notifly with your React Native applications. It supports both Android and iOS platforms.
 
-![Generic badge](https://img.shields.io/badge/npm-2.3.0-green.svg)
-![Generic badge](https://img.shields.io/badge/license-MIT-blue.svg)
 ## Installation
-    
-```sh
-npm install notifly-sdk@latest
+
+To install the package, run the following command:
+
+```
+npm install notifly-sdk@latest --save
+```
+
+or
+
+```
+yarn add notifly-sdk@latest
 ```
 
 ## Usage
-[Notifly 개발자 문서](https://docs.notifly.tech/ko/developer-guide/client-sdk/react-native-sdk)를 참고해주세요.
+
+Please refer to our official documentation: 
+
+* [English documentation](https://docs.notifly.tech/developer-guide/client-sdk/react-native-sdk)
+* [Korean documentation](https://docs.notifly.tech/ko/developer-guide/client-sdk/react-native-sdk)
