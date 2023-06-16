@@ -1,6 +1,6 @@
 {
   "name": "notifly-sdk",
-  "version": "2.3.4",
+  "version": "3.0.0",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
