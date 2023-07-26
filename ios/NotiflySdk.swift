@@ -4,13 +4,12 @@ import notifly_sdk
 @objc(NotiflySdk)
 class NotiflySdk: NSObject {
     @objc(multiply:withB:withResolver:withRejecter:)
-    func multiply(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
-    resolve(a*b)
+    func multiply(a: Float, b: Float, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
+        resolve(a * b)
     }
-    
-    
+
     @objc(initialize:withUsername:withPassword:withResolver:withRejecter:)
-    func initialize(projectId: String, username: String, password: String, resolve:RCTPromiseResolveBlock, reject:RCTPromiseRejectBlock) -> Void {
+    func initialize(projectId: String, username: String, password: String, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
         Notifly.setSdkType(type: "react_native")
         Notifly.setSdkVersion(version: "3.0.0") // TODO: get version from package.json
         Notifly.initialize(projectId: projectId, username: username, password: password)
@@ -18,13 +17,13 @@ class NotiflySdk: NSObject {
     }
 
     @objc(setUserId:withResolver:withRejecter:)
-    func setUserId(userId: String?, resolve:RCTPromiseResolveBlock, reject:RCTPromiseRejectBlock) {
+    func setUserId(userId: String?, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
         Notifly.setUserId(userId: userId)
         resolve(nil)
     }
 
     @objc(setUserProperties:withResolver:withRejecter:)
-    func setUserProperties(userProperties: [String: Any], resolve:RCTPromiseResolveBlock, reject:RCTPromiseRejectBlock) {
+    func setUserProperties(userProperties: [String: Any], resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
         Notifly.setUserProperties(userProperties: userProperties)
         resolve(nil)
     }
@@ -32,8 +31,15 @@ class NotiflySdk: NSObject {
     @objc(trackEvent:withEventParams:withSegmentationEventParamKeys:withResolver:withRejecter:)
     func trackEvent(eventName: String,
                     eventParams: [String: Any]?, segmentationEventParamKeys: [String]?,
-                    resolve:RCTPromiseResolveBlock, reject:RCTPromiseRejectBlock) {
+                    resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock)
+    {
         Notifly.trackEvent(eventName: eventName, eventParams: eventParams, segmentationEventParamKeys: segmentationEventParamKeys)
+        resolve(nil)
+    }
+
+    @objc(disableInAppMessage:rejecter:)
+    func disableInAppMessage(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+        Notifly.disableInAppMessage()
         resolve(nil)
     }
 }

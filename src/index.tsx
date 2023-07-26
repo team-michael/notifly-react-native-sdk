@@ -92,6 +92,10 @@ export function setNotiflyBackgroundMessageHandler(): Promise<void> {
   return Promise.resolve();
 }
 
+export function disableInAppMessage(): Promise<void> {
+  return NotiflySdk.disableInAppMessage();
+}
+
 const notifly = {
   initialize,
   setUserId,
@@ -100,6 +104,7 @@ const notifly = {
   setLogLevel,
   notiflyBackgroundHandler,
   setNotiflyBackgroundMessageHandler,
+  disableInAppMessage,
 };
 
 export default notifly;

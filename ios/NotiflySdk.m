@@ -14,6 +14,10 @@ RCT_EXTERN_METHOD(setUserProperties:(NSDictionary)userProperties withResolver:(R
 
 RCT_EXTERN_METHOD(trackEvent:(NSString)eventName withEventParams:(NSDictionary _Nullable)eventParams withSegmentationEventParamKeys:(NSArray _Nullable)segmentationEventParamKeys withResolver:(RCTPromiseResolveBlock)resolve withRejecter:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(disableInAppMessage:
+    (RCTPromiseResolveBlock)resolve
+    rejecter:(RCTPromiseRejectBlock)reject)
+    
 + (BOOL)requiresMainQueueSetup
 {
   return NO;

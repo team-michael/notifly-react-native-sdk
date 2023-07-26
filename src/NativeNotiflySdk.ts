@@ -20,6 +20,7 @@ export interface Spec extends TurboModule {
   setLogLevel(logLevel: number): Promise<void>;
   notiflyBackgroundHandler(_remoteMessage: any): Promise<void>;
   setNotificationOpenedHandler(): Promise<void>;
+  disableInAppMessage(): Promise<void>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('NotiflySdk');
