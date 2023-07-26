@@ -1,6 +1,6 @@
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
-  def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["NotiflySdk_kotlinVersion"]
+  def kotlin_version = project.properties["NotiflySdk_kotlinVersion"]
 
   repositories {
     google()
@@ -88,7 +88,7 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation "com.github.team-michael:notifly-android-sdk:1.0.5"
+  implementation "com.github.team-michael:notifly-android-sdk:1.1.9"
 }
 
 if (isNewArchitectureEnabled()) {

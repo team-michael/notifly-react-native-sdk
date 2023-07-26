@@ -94,6 +94,16 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     }
   }
 
+  @ReactMethod
+  override fun disableInAppMessage(promise: Promise) {
+    try {
+      Notifly.disableInAppMessage()
+      promise.resolve(null)
+    } catch (e: Exception) {
+      promise.reject(e)
+    }
+  }
+
   companion object {
     const val NAME = "NotiflySdk"
   }
