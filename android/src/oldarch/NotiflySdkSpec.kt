@@ -21,4 +21,5 @@ abstract class NotiflySdkSpec internal constructor(context: ReactApplicationCont
     promise: Promise,
   )
   abstract fun setLogLevel(logLevel: Int, promise: Promise)
+  abstract fun disableInAppMessage(promise: Promise)
 }
