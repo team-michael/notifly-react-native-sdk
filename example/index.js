@@ -4,6 +4,7 @@ import { name as appName } from './app.json';
 import { NOTIFLY_PROJECT_ID, NOTIFLY_USERNAME, NOTIFLY_PASSWORD } from '@env';
 import notifly from 'notifly-sdk';
 
+notifly.disableInAppMessage();
 notifly.initialize(
   NOTIFLY_PROJECT_ID,
   NOTIFLY_USERNAME,
