@@ -23,9 +23,8 @@ const linking = {
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function App({ setAppMode }) {
   const [result, setResult] = React.useState(null);
-
   React.useEffect(() => {
     const requestPermission = async () => {
       await messaging().requestPermission();
@@ -36,7 +35,12 @@ export default function App() {
   return (
     <NavigationContainer linking={linking}>
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen component={LoginPage} name="Login" />
+        <Stack.Screen
+          component={(props) => (
+            <LoginPage {...props} setAppMode={setAppMode} />
+          )}
+          name="Login"
+        />
         <Stack.Screen component={HomePage} name="Home" />
         <Stack.Screen component={MyPage} name="MyPage" />
         <Stack.Screen component={EventPage} name="EventPage" />

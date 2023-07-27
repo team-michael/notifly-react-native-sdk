@@ -8,7 +8,7 @@ const handleClick = async () => {
   await notifly.trackEvent('loginpage_visit');
 };
 
-function LoginComponent({ navigation }) {
+function LoginComponent({ navigation, setAppMode }) {
   const [fcmToken, setFcmToken] = useState('');
 
   useEffect(() => {
@@ -23,6 +23,16 @@ function LoginComponent({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>FCM Token: {fcmToken}</Text>
+      <View style={styles.button}>
+        <Button
+          title="Webview Mode"
+          onPress={() => {
+            setAppMode('WEBVIEW');
+          }}
+          style={styles.button}
+          color="#123123"
+        />
+      </View>
       <View style={styles.button}>
         <Button
           title="LoginPage_visit"
