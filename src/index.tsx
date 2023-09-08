@@ -96,6 +96,14 @@ export function disableInAppMessage(): Promise<void> {
   return NotiflySdk.disableInAppMessage();
 }
 
+export function registerFCMToken(token: string): Promise<void> {
+  if (Platform.OS === 'android') {
+    console.warn('Warning: registerFCMToken is only supported on iOS.');
+    return Promise.resolve();
+  }
+  return NotiflySdk.registerFCMToken(token);
+}
+
 const notifly = {
   initialize,
   setUserId,
@@ -105,6 +113,7 @@ const notifly = {
   notiflyBackgroundHandler,
   setNotiflyBackgroundMessageHandler,
   disableInAppMessage,
+  registerFCMToken,
 };
 
 export default notifly;

@@ -17,6 +17,8 @@ RCT_EXTERN_METHOD(trackEvent:(NSString)eventName withEventParams:(NSDictionary _
 RCT_EXTERN_METHOD(disableInAppMessage:
     (RCTPromiseResolveBlock)resolve
     rejecter:(RCTPromiseRejectBlock)reject)
+
+RCT_EXTERN_METHOD(registerFCMToken:(NSString)token withResolver:(RCTPromiseResolveBlock)resolve withRejecter:(RCTPromiseRejectBlock)reject)  
     
 + (BOOL)requiresMainQueueSetup
 {

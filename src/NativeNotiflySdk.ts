@@ -21,6 +21,7 @@ export interface Spec extends TurboModule {
   notiflyBackgroundHandler(_remoteMessage: any): Promise<void>;
   setNotificationOpenedHandler(): Promise<void>;
   disableInAppMessage(): Promise<void>;
+  registerFCMToken(token: string): Promise<void>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('NotiflySdk');
