@@ -13,7 +13,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B3B12E74058651CD8E5C8199 /* Pods_NotiflySdkExample_NotiflySdkExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9574013F884D4C24194706A /* Pods_NotiflySdkExample_NotiflySdkExampleTests.framework */; };
+		C24CD6FBD41AE9234AE8C895 /* Pods_NotiflyNotificationExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D182E445939153CA0567F0 /* Pods_NotiflyNotificationExtension.framework */; };
 		DA3B9F4F02B41B4C444F7391 /* Pods_NotiflySdkExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5CF9338FD09519FE0A7F68 /* Pods_NotiflySdkExample.framework */; };
+		F237A4662AE28244001E74A1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237A4652AE28244001E74A1 /* NotificationService.swift */; };
+		F237A46A2AE28244001E74A1 /* NotiflyNotificationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F237A4632AE28244001E74A1 /* NotiflyNotificationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F2EC01632A2833940092C95F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2EC01622A2833940092C95F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +28,28 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = NotiflySdkExample;
 		};
+		F237A4682AE28244001E74A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F237A4622AE28244001E74A1;
+			remoteInfo = NotiflyNotificationExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F237A46B2AE28244001E74A1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F237A46A2AE28244001E74A1 /* NotiflyNotificationExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* NotiflySdkExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotiflySdkExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,14 +61,21 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NotiflySdkExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NotiflySdkExample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NotiflySdkExample/main.m; sourceTree = "<group>"; };
+		26978638D5335E8FE4A3F839 /* Pods-NotiflyNotificationExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiflyNotificationExtension.release.xcconfig"; path = "Target Support Files/Pods-NotiflyNotificationExtension/Pods-NotiflyNotificationExtension.release.xcconfig"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-NotiflySdkExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiflySdkExample.debug.xcconfig"; path = "Target Support Files/Pods-NotiflySdkExample/Pods-NotiflySdkExample.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-NotiflySdkExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiflySdkExample.release.xcconfig"; path = "Target Support Files/Pods-NotiflySdkExample/Pods-NotiflySdkExample.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-NotiflySdkExample-NotiflySdkExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiflySdkExample-NotiflySdkExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-NotiflySdkExample-NotiflySdkExampleTests/Pods-NotiflySdkExample-NotiflySdkExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FF98571F9FF015C75029095 /* Pods-NotiflyNotificationExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiflyNotificationExtension.debug.xcconfig"; path = "Target Support Files/Pods-NotiflyNotificationExtension/Pods-NotiflyNotificationExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = NotiflySdkExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-NotiflySdkExample-NotiflySdkExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiflySdkExample-NotiflySdkExampleTests.release.xcconfig"; path = "Target Support Files/Pods-NotiflySdkExample-NotiflySdkExampleTests/Pods-NotiflySdkExample-NotiflySdkExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		927B32B02A1C8B0900934DFD /* NotiflySdkExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = NotiflySdkExample.entitlements; path = NotiflySdkExample/NotiflySdkExample.entitlements; sourceTree = "<group>"; };
 		AB5CF9338FD09519FE0A7F68 /* Pods_NotiflySdkExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotiflySdkExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D182E445939153CA0567F0 /* Pods_NotiflyNotificationExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotiflyNotificationExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F237A4632AE28244001E74A1 /* NotiflyNotificationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotiflyNotificationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F237A4652AE28244001E74A1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F237A4672AE28244001E74A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F237A46F2AE2827D001E74A1 /* NotiflyNotificationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotiflyNotificationExtension.entitlements; sourceTree = "<group>"; };
 		F2EC01622A2833940092C95F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2EC017B2A2863AA0092C95F /* NotiflySdkExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotiflySdkExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9574013F884D4C24194706A /* Pods_NotiflySdkExample_NotiflySdkExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotiflySdkExample_NotiflySdkExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +95,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA3B9F4F02B41B4C444F7391 /* Pods_NotiflySdkExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F237A4602AE28244001E74A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24CD6FBD41AE9234AE8C895 /* Pods_NotiflyNotificationExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +147,7 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				AB5CF9338FD09519FE0A7F68 /* Pods_NotiflySdkExample.framework */,
 				F9574013F884D4C24194706A /* Pods_NotiflySdkExample_NotiflySdkExampleTests.framework */,
+				B0D182E445939153CA0567F0 /* Pods_NotiflyNotificationExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,6 +166,7 @@
 				13B07FAE1A68108700A75B9A /* NotiflySdkExample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* NotiflySdkExampleTests */,
+				F237A4642AE28244001E74A1 /* NotiflyNotificationExtension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -140,6 +181,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* NotiflySdkExample.app */,
 				00E356EE1AD99517003FC87E /* NotiflySdkExampleTests.xctest */,
+				F237A4632AE28244001E74A1 /* NotiflyNotificationExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,8 +193,20 @@
 				5709B34CF0A7D63546082F79 /* Pods-NotiflySdkExample.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-NotiflySdkExample-NotiflySdkExampleTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-NotiflySdkExample-NotiflySdkExampleTests.release.xcconfig */,
+				5FF98571F9FF015C75029095 /* Pods-NotiflyNotificationExtension.debug.xcconfig */,
+				26978638D5335E8FE4A3F839 /* Pods-NotiflyNotificationExtension.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F237A4642AE28244001E74A1 /* NotiflyNotificationExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F237A46F2AE2827D001E74A1 /* NotiflyNotificationExtension.entitlements */,
+				F237A4652AE28244001E74A1 /* NotificationService.swift */,
+				F237A4672AE28244001E74A1 /* Info.plist */,
+			);
+			path = NotiflyNotificationExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,15 +246,35 @@
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
 				8EB9A3D7A2184277D05AB820 /* [CP-User] [RNFB] Core Configuration */,
+				F237A46B2AE28244001E74A1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F237A4692AE28244001E74A1 /* PBXTargetDependency */,
 			);
 			name = NotiflySdkExample;
 			productName = NotiflySdkExample;
 			productReference = 13B07F961A680F5B00A75B9A /* NotiflySdkExample.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F237A4622AE28244001E74A1 /* NotiflyNotificationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F237A46E2AE28244001E74A1 /* Build configuration list for PBXNativeTarget "NotiflyNotificationExtension" */;
+			buildPhases = (
+				CB09ABF167DF98F702BC4CB5 /* [CP] Check Pods Manifest.lock */,
+				F237A45F2AE28244001E74A1 /* Sources */,
+				F237A4602AE28244001E74A1 /* Frameworks */,
+				F237A4612AE28244001E74A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotiflyNotificationExtension;
+			productName = NotiflyNotificationExtension;
+			productReference = F237A4632AE28244001E74A1 /* NotiflyNotificationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -208,6 +282,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -216,6 +291,9 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1430;
+					};
+					F237A4622AE28244001E74A1 = {
+						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
@@ -234,6 +312,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* NotiflySdkExample */,
 				00E356ED1AD99517003FC87E /* NotiflySdkExampleTests */,
+				F237A4622AE28244001E74A1 /* NotiflyNotificationExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -253,6 +332,13 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				F2EC01632A2833940092C95F /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F237A4612AE28244001E74A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +452,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NotiflySdkExample-NotiflySdkExampleTests/Pods-NotiflySdkExample-NotiflySdkExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CB09ABF167DF98F702BC4CB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotiflyNotificationExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,6 +547,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F237A45F2AE28244001E74A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F237A4662AE28244001E74A1 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -446,6 +562,11 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* NotiflySdkExample */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		F237A4692AE28244001E74A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F237A4622AE28244001E74A1 /* NotiflyNotificationExtension */;
+			targetProxy = F237A4682AE28244001E74A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -507,6 +628,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-NotiflySdkExample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NotiflySdkExample/NotiflySdkExample.entitlements;
@@ -538,6 +660,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-NotiflySdkExample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NotiflySdkExample/NotiflySdkExample.entitlements;
@@ -701,6 +824,86 @@
 			};
 			name = Release;
 		};
+		F237A46C2AE28244001E74A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FF98571F9FF015C75029095 /* Pods-NotiflyNotificationExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = NotiflyNotificationExtension/NotiflyNotificationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MR367J8PMN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotiflyNotificationExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotiflyNotificationExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.NotiflySdkExample.NotiflyNotificationExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F237A46D2AE28244001E74A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26978638D5335E8FE4A3F839 /* Pods-NotiflyNotificationExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = NotiflyNotificationExtension/NotiflyNotificationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MR367J8PMN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotiflyNotificationExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotiflyNotificationExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.NotiflySdkExample.NotiflyNotificationExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -727,6 +930,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F237A46E2AE28244001E74A1 /* Build configuration list for PBXNativeTarget "NotiflyNotificationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F237A46C2AE28244001E74A1 /* Debug */,
+				F237A46D2AE28244001E74A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
