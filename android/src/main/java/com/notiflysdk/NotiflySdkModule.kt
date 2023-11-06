@@ -7,8 +7,8 @@ import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.Promise
 import tech.notifly.Notifly
-import tech.notifly.utils.NotiflyControlToken
-import tech.notifly.utils.NotiflySdkType
+import tech.notifly.NotiflyControlToken
+import tech.notifly.NotiflySdkType
 
 class NotiflyControlTokenImpl : NotiflyControlToken
 class NotiflySdkModule internal constructor(private val reactContext: ReactApplicationContext) :
@@ -31,7 +31,7 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkType.REACT_NATIVE)
       Notifly.setSdkVersion(
         NotiflyControlTokenImpl(),
-        "3.0.3"
+        "3.0.4"
       ) // TODO: get version from package.json
       Notifly.initialize(reactContext, projectId, username, password)
       promise.resolve(null)
