@@ -1,3 +1,9 @@
+export interface InitializeParams {
+  projectId: string;
+  username: string;
+  password: string;
+}
+
 export interface UserProperties {
   [key: string]: any;
 }

@@ -1,4 +1,4 @@
-package com.notiflysdk
+package tech.notifly.rn
 
 import com.facebook.react.bridge.ReactApplicationContext
 

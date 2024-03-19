@@ -1,4 +1,4 @@
-package com.notiflysdk
+package tech.notifly.rn
 
 import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext
@@ -11,18 +11,12 @@ import tech.notifly.NotiflyControlToken
 import tech.notifly.NotiflySdkType
 
 class NotiflyControlTokenImpl : NotiflyControlToken
+
 class NotiflySdkModule internal constructor(private val reactContext: ReactApplicationContext) :
   NotiflySdkSpec(reactContext) {
 
   override fun getName(): String {
     return NAME
-  }
-
-  // Example method
-  // See https://reactnative.dev/docs/native-modules-android
-  @ReactMethod
-  override fun multiply(a: Double, b: Double, promise: Promise) {
-    promise.resolve(a * b)
   }
 
   @ReactMethod
@@ -31,7 +25,7 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkType.REACT_NATIVE)
       Notifly.setSdkVersion(
         NotiflyControlTokenImpl(),
-        "3.1.1"
+        "3.2.0"
       ) // TODO: get version from package.json
       Notifly.initialize(reactContext, projectId, username, password)
       promise.resolve(null)
@@ -64,12 +58,12 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   @ReactMethod
   override fun trackEvent(
     eventName: String,
-    eventParams: ReadableMap?,
+    params: ReadableMap?,
     segmentationEventParamKeys: ReadableArray?,
     promise: Promise
   ) {
     try {
-      val mapParams = eventParams?.toHashMap() ?: emptyMap<String, Any?>()
+      val mapParams = params?.toHashMap() ?: emptyMap<String, Any?>()
       val listKeys = segmentationEventParamKeys?.toArrayList()?.map { it.toString() }
       Notifly.trackEvent(
         reactContext,
@@ -105,6 +99,6 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   }
 
   companion object {
-    const val NAME = "NotiflySdk"
+    const val NAME = "NotiflyReactNativeSdk"
   }
 }

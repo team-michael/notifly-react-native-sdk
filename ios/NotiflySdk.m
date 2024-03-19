@@ -1,10 +1,6 @@
 #import <React/RCTBridgeModule.h>
 
-@interface RCT_EXTERN_MODULE(NotiflySdk, NSObject)
-
-RCT_EXTERN_METHOD(multiply:(float)a withB:(float)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
+@interface RCT_EXTERN_MODULE(NotiflyReactNativeSdk, NSObject)
 
 RCT_EXTERN_METHOD(initialize:(NSString)projectId withUsername:(NSString)username withPassword:(NSString)password withResolver:(RCTPromiseResolveBlock)resolve withRejecter:(RCTPromiseRejectBlock)reject)
 
