@@ -42,7 +42,7 @@
     "android"
   ],
   "repository": "https://github.com/team-michael/notifly-react-native-sdk",
-  "author": "minyonglee <minyong@workmichael.com> (https://github.com/minyonglee)",
+  "author": "Grey Box Inc.",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/team-michael/notifly-react-native-sdk/issues"
