@@ -1,3 +1,5 @@
+export * from './notification';
+
 export interface InitializeParams {
   projectId: string;
   username: string;

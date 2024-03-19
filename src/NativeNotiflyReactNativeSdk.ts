@@ -16,6 +16,7 @@ export interface Spec extends TurboModule {
   ): Promise<void>;
   setLogLevel(logLevel: number): Promise<void>;
   disableInAppMessage(): Promise<void>;
+  addNotificationClickListener(): Promise<void>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('NotiflyReactNativeSdk');

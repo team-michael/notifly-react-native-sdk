@@ -1,9 +1,15 @@
 import { NativeModules, Platform } from 'react-native';
-import type {
-  InitializeParams,
-  EventProperties,
-  UserProperties,
+import {
+  type InitializeParams,
+  type EventProperties,
+  type UserProperties,
+  type NotificationClickListener,
+  type OSNotificationClickEvent,
 } from './types';
+import EventReceiver from './events/EventReceiver';
+import { EventNames } from './constants';
+
+export type { InitializeParams, EventProperties, UserProperties };
 
 const LINKING_ERROR =
   `The package 'notifly-sdk' doesn't seem to be linked. Make sure: \n\n` +
@@ -29,7 +35,12 @@ const NotiflyReactNativeSdk = NotiflyReactNativeSdkModule
       }
     );
 
-export type { InitializeParams, EventProperties, UserProperties };
+const eventReceiver =
+  NotiflyReactNativeSdkModule && Platform.OS === 'android'
+    ? new EventReceiver(NotiflyReactNativeSdkModule)
+    : null;
+
+let isNativeNotificationClickListenerRegistered = false;
 
 export function initialize(params: InitializeParams): Promise<void> {
   return NotiflyReactNativeSdk.initialize(
@@ -64,7 +75,7 @@ export function setLogLevel(logLevel: number): Promise<void> {
   if (Platform.OS === 'android') {
     return NotiflyReactNativeSdk.setLogLevel(logLevel);
   } else {
-    console.warn(
+    console.error(
       '[Notifly React Native SDK] setLogLevel is only supported on Android.'
     );
   }
@@ -75,6 +86,29 @@ export function disableInAppMessage(): Promise<void> {
   return NotiflyReactNativeSdk.disableInAppMessage();
 }
 
+export function addNotificationClickListener(
+  listener: NotificationClickListener
+): Promise<void> {
+  if (eventReceiver) {
+    // only implemented on Android
+    eventReceiver.addEventListener<OSNotificationClickEvent>(
+      EventNames.NOTIFICATION_CLICKED,
+      listener
+    );
+
+    if (!isNativeNotificationClickListenerRegistered) {
+      NotiflyReactNativeSdk.addNotificationClickListener();
+      isNativeNotificationClickListenerRegistered = true;
+    }
+  } else {
+    console.error(
+      '[Notifly React Native SDK] addNotificationClickListener is only supported on Android.'
+    );
+  }
+
+  return Promise.resolve();
+}
+
 const notifly = {
   initialize,
   setUserId,
@@ -82,6 +116,7 @@ const notifly = {
   trackEvent,
   setLogLevel,
   disableInAppMessage,
+  addNotificationClickListener,
 };
 
 export default notifly;
