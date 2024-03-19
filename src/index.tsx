@@ -1,15 +1,15 @@
 import { NativeModules, Platform } from 'react-native';
-import {
-  type InitializeParams,
-  type EventProperties,
-  type UserProperties,
-  type NotificationClickListener,
-  type OSNotificationClickEvent,
+import type {
+  InitializeParams,
+  EventProperties,
+  UserProperties,
+  NotificationClickListener,
+  OSNotificationClickEvent,
 } from './types';
 import EventReceiver from './events/EventReceiver';
 import { EventNames } from './constants';
 
-export type { InitializeParams, EventProperties, UserProperties };
+export type * from './types';
 
 const LINKING_ERROR =
   `The package 'notifly-sdk' doesn't seem to be linked. Make sure: \n\n` +
