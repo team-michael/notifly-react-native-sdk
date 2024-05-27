@@ -11,14 +11,14 @@ import com.facebook.react.bridge.Promise
 import com.facebook.react.modules.core.DeviceEventManagerModule
 
 import tech.notifly.Notifly
-import tech.notifly.NotiflyControlToken
-import tech.notifly.NotiflySdkType
+import tech.notifly.sdk.NotiflySdkControlToken
+import tech.notifly.sdk.NotiflySdkWrapperType
 import tech.notifly.push.interfaces.INotificationClickEvent
 import tech.notifly.push.interfaces.INotificationClickListener
 
 var isNativeNotificationClickListenerRegistered = false
 
-class NotiflyControlTokenImpl : NotiflyControlToken
+class NotiflyControlTokenImpl : NotiflySdkControlToken
 
 class NotiflySdkModule internal constructor(private val reactContext: ReactApplicationContext) :
   NotiflySdkSpec(reactContext) {
@@ -32,10 +32,10 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     try {
       val context: Context = reactContext.currentActivity ?: reactContext.applicationContext
 
-      Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkType.REACT_NATIVE)
+      Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkWrapperType.REACT_NATIVE)
       Notifly.setSdkVersion(
         NotiflyControlTokenImpl(),
-        "3.3.0"
+        "3.4.0"
       )
 
       Notifly.initialize(context, projectId, username, password)
