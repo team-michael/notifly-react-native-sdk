@@ -35,7 +35,7 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkWrapperType.REACT_NATIVE)
       Notifly.setSdkVersion(
         NotiflyControlTokenImpl(),
-        "3.4.0"
+        "3.5.0"
       )
 
       Notifly.initialize(context, projectId, username, password)
@@ -65,6 +65,24 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
     } catch (e: Exception) {
       promise.reject(e)
     }
+  }
+
+  @ReactMethod
+  override fun setEmail(email: String, promise: Promise) {
+    Notifly.setEmail(reactContext, email)
+    promise.resolve(null)
+  }
+
+  @ReactMethod
+  override fun setPhoneNumber(phoneNumber: String, promise: Promise) {
+    Notifly.setPhoneNumber(reactContext, phoneNumber)
+    promise.resolve(null)
+  }
+
+  @ReactMethod
+  override fun setTimezone(timezone: String, promise: Promise) {
+    Notifly.setTimezone(reactContext, timezone)
+    promise.resolve(null)
   }
 
   @ReactMethod

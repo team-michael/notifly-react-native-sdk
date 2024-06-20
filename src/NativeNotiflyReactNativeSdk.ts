@@ -9,6 +9,9 @@ export interface Spec extends TurboModule {
   ): Promise<void>;
   setUserId(userId: string | null | undefined): Promise<void>;
   setUserProperties(userProperties: UserProperties): Promise<void>;
+  setEmail(email: string): Promise<void>;
+  setPhoneNumber(phoneNumber: string): Promise<void>;
+  setTimezone(timezone: string): Promise<void>;
   trackEvent(
     eventName: string,
     eventParams: EventProperties | null | undefined,

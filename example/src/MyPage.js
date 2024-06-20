@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
-import { Button, View, Text, TextInput, StyleSheet } from 'react-native';
+import {
+  Button,
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
 import notifly from 'notifly-sdk';
 
 function MyPage({ navigation }) {
   const [userID, setUserID] = useState(undefined);
+
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [timezone, setTimezone] = useState('');
+
   const [key, setKey] = useState('');
   const [value, setValue] = useState('');
 
@@ -11,18 +23,36 @@ function MyPage({ navigation }) {
     console.log('userID', userID);
     await notifly.setUserId(userID);
   };
+
   const handleRemoveUserId = async () => {
     console.log('handleRemoveUserId');
     await notifly.setUserId();
   };
+
   const handleClickSetUserProperties = async () => {
     console.log(`handleClickSetUserProperties ${key}: ${value}`);
     await notifly.setUserProperties({
       [key]: value,
     });
   };
+
+  const handleClickSetEmail = async () => {
+    console.log(`handleClickSetEmail ${email}`);
+    await notifly.setEmail(email);
+  };
+
+  const handleClickSetPhoneNumber = async () => {
+    console.log(`handleClickSetPhoneNumber ${phoneNumber}`);
+    await notifly.setPhoneNumber(phoneNumber);
+  };
+
+  const handleClickSetTimezone = async () => {
+    console.log(`handleClickSetTimezone ${timezone}`);
+    await notifly.setTimezone(timezone);
+  };
+
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <Text style={styles.welcomeText}>This is MyPage</Text>
       <Text>Current userID: {userID}</Text>
       <TextInput
@@ -34,6 +64,42 @@ function MyPage({ navigation }) {
         <Button
           title="set_user_id"
           onPress={handleClickSetUserId}
+          color="#841584"
+        />
+      </View>
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+      />
+      <View style={styles.button}>
+        <Button
+          title="Set Email"
+          onPress={handleClickSetEmail}
+          color="#841584"
+        />
+      </View>
+      <TextInput
+        style={styles.input}
+        value={phoneNumber}
+        onChangeText={(text) => setPhoneNumber(text)}
+      />
+      <View style={styles.button}>
+        <Button
+          title="Set Phone Number"
+          onPress={handleClickSetPhoneNumber}
+          color="#841584"
+        />
+      </View>
+      <TextInput
+        style={styles.input}
+        value={timezone}
+        onChangeText={(text) => setTimezone(text)}
+      />
+      <View style={styles.button}>
+        <Button
+          title="Set Timezone"
+          onPress={handleClickSetTimezone}
           color="#841584"
         />
       </View>
@@ -73,7 +139,7 @@ function MyPage({ navigation }) {
           color="#000000"
         />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
