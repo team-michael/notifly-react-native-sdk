@@ -58,6 +58,18 @@ export function setUserProperties(properties: UserProperties): Promise<void> {
   return NotiflyReactNativeSdk.setUserProperties(properties);
 }
 
+export function setEmail(email: string): Promise<void> {
+  return NotiflyReactNativeSdk.setEmail(email);
+}
+
+export function setPhoneNumber(phoneNumber: string): Promise<void> {
+  return NotiflyReactNativeSdk.setPhoneNumber(phoneNumber);
+}
+
+export function setTimezone(timezone: string): Promise<void> {
+  return NotiflyReactNativeSdk.setTimezone(timezone);
+}
+
 export function trackEvent(
   eventName: string,
   eventParams: EventProperties | null | undefined = undefined,
@@ -113,6 +125,9 @@ const notifly = {
   initialize,
   setUserId,
   setUserProperties,
+  setEmail,
+  setPhoneNumber,
+  setTimezone,
   trackEvent,
   setLogLevel,
   disableInAppMessage,

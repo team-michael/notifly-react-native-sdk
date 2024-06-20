@@ -6,7 +6,7 @@ class NotiflyReactNativeSdk: NSObject {
     @objc(initialize:withUsername:withPassword:withResolver:withRejecter:)
     func initialize(projectId: String, username: String, password: String, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
         Notifly.setSdkType(type: "react_native")
-        Notifly.setSdkVersion(version: "3.4.0") // TODO: get version from package.json
+        Notifly.setSdkVersion(version: "3.5.0") // TODO: get version from package.json
         Notifly.initialize(projectId: projectId, username: username, password: password)
         resolve(nil)
     }
@@ -20,6 +20,24 @@ class NotiflyReactNativeSdk: NSObject {
     @objc(setUserProperties:withResolver:withRejecter:)
     func setUserProperties(userProperties: [String: Any], resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
         Notifly.setUserProperties(userProperties: userProperties)
+        resolve(nil)
+    }
+
+    @objc(setEmail:withResolver:withRejecter:)
+    func setEmail(email: String, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
+        Notifly.setEmail(email)
+        resolve(nil)
+    }
+
+    @objc(setPhoneNumber:withResolver:withRejecter:)
+    func setPhoneNumber(phoneNumber: String, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
+        Notifly.setPhoneNumber(phoneNumber)
+        resolve(nil)
+    }
+
+    @objc(setTimezone:withResolver:withRejecter:)
+    func setTimezone(timezone: String, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
+        Notifly.setTimezone(timezone)
         resolve(nil)
     }
 
