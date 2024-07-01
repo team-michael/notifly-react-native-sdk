@@ -1,6 +1,6 @@
 {
   "name": "notifly-sdk",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "description": "Notifly SDK for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -155,10 +155,5 @@
         }
       ]
     ]
-  },
-  "codegenConfig": {
-    "name": "RNNotiflyReactNativeSdkSpec",
-    "type": "modules",
-    "jsSrcsDir": "src"
   }
 }
