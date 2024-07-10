@@ -1,4 +1,4 @@
-import notifly_sdk
+import notifly_sdk_push_extension
 
 class NotificationService: NotiflyNotificationServiceExtension {
     override init() {
@@ -7,7 +7,7 @@ class NotificationService: NotiflyNotificationServiceExtension {
     }
 
     func setup() {
-        register(projectId: "YOUR_PROJECT_ID", username: "USERNAME")
+        register(projectId: "b80c3f0e2fbd5eb986df4f1d32ea2871", username: "minyong")
     }
     
 }

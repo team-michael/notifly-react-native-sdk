@@ -55,7 +55,12 @@ export function setUserId(userId: string | null | undefined): Promise<void> {
 }
 
 export function setUserProperties(properties: UserProperties): Promise<void> {
-  return NotiflyReactNativeSdk.setUserProperties(properties);
+  const isIOS = Platform.OS === 'ios';
+  if (isIOS) {
+    return NotiflyReactNativeSdk.setUserProperties(JSON.stringify(properties));
+  } else {
+    return NotiflyReactNativeSdk.setUserProperties(properties);
+  }
 }
 
 export function setEmail(email: string): Promise<void> {
@@ -75,11 +80,19 @@ export function trackEvent(
   eventParams: EventProperties | null | undefined = undefined,
   segmentationEventParamKeys: string[] | undefined | null = null
 ): Promise<void> {
-  return NotiflyReactNativeSdk.trackEvent(
-    eventName,
-    eventParams,
-    segmentationEventParamKeys
-  );
+  if (eventParams && Platform.OS === 'ios') {
+    return NotiflyReactNativeSdk.trackEvent(
+      eventName,
+      JSON.stringify(eventParams),
+      segmentationEventParamKeys
+    );
+  } else {
+    return NotiflyReactNativeSdk.trackEvent(
+      eventName,
+      eventParams,
+      segmentationEventParamKeys
+    );
+  }
 }
 
 export function setLogLevel(logLevel: number): Promise<void> {

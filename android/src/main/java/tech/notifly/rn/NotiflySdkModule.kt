@@ -35,7 +35,7 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkWrapperType.REACT_NATIVE)
       Notifly.setSdkVersion(
         NotiflyControlTokenImpl(),
-        "3.5.1"
+        "3.6.0"
       )
 
       Notifly.initialize(context, projectId, username, password)
