@@ -15,6 +15,7 @@ notifly.initialize({
   username: NOTIFLY_USERNAME,
   password: NOTIFLY_PASSWORD,
 });
+notifly.setUserId('rn_test_user');
 
 console.log('Adding notification click listener');
 notifly.addNotificationClickListener((notification) => {
