@@ -17,6 +17,10 @@ notifly.initialize({
 });
 notifly.setUserId('rn_test_user');
 
+notifly.getNotiflyUserId().then((userId) => {
+  console.log('User ID:', userId);
+});
+
 console.log('Adding notification click listener');
 notifly.addNotificationClickListener((notification) => {
   console.log(
