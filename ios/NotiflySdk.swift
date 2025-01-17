@@ -9,16 +9,26 @@ class NotiflyReactNativeSdk: NSObject {
     reject _: RCTPromiseRejectBlock
   ) {
     Notifly.setSdkType(type: "react_native")
-    Notifly.setSdkVersion(version: "3.6.2")  // TODO: get version from package.json
+    Notifly.setSdkVersion(version: "3.7.0") // TODO: get version from package.json
     Notifly.initialize(projectId: projectId, username: username, password: password)
     resolve(nil)
   }
 
   @objc(setUserId:withResolver:withRejecter:)
-  func setUserId(userId: String?, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock)
-  {
+  func setUserId(userId: String?, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
     Notifly.setUserId(userId: userId)
     resolve(nil)
+  }
+
+  @objc(getNotiflyUserId:withRejecter:)
+  func getNotiflyUserId(resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
+    let notiflyUserId = Notifly.getNotiflyUserId()
+
+    if notiflyUserId != nil {
+      resolve(notiflyUserId)
+    } else {
+      resolve(nil)
+    }
   }
 
   @objc(setUserProperties:withResolver:withRejecter:)
@@ -61,7 +71,6 @@ class NotiflyReactNativeSdk: NSObject {
     eventParams: String?, segmentationEventParamKeys: [String]?,
     resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock
   ) {
-
     if let stringfiedEventParams = eventParams {
       let parsedEventParams = NotiflyAnyCodable.parseJsonString(stringfiedEventParams)
       Notifly.trackEvent(
@@ -79,7 +88,7 @@ class NotiflyReactNativeSdk: NSObject {
 
   @objc(disableInAppMessage:rejecter:)
   func disableInAppMessage(
-    _ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock
+    _ resolve: RCTPromiseResolveBlock, rejecter _: RCTPromiseRejectBlock
   ) {
     Notifly.disableInAppMessage()
     resolve(nil)
