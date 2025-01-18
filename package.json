@@ -1,6 +1,6 @@
 {
   "name": "notifly-sdk",
-  "version": "3.6.2",
+  "version": "3.7.0",
   "description": "Notifly SDK for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
