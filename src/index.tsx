@@ -54,6 +54,10 @@ export function setUserId(userId: string | null | undefined): Promise<void> {
   return NotiflyReactNativeSdk.setUserId(userId);
 }
 
+export async function getNotiflyUserId(): Promise<string | null> {
+  return (await NotiflyReactNativeSdk.getNotiflyUserId()) ?? null;
+}
+
 export function setUserProperties(properties: UserProperties): Promise<void> {
   const isIOS = Platform.OS === 'ios';
   if (isIOS) {
@@ -142,6 +146,7 @@ const notifly = {
   setPhoneNumber,
   setTimezone,
   trackEvent,
+  getNotiflyUserId,
   setLogLevel,
   disableInAppMessage,
   addNotificationClickListener,

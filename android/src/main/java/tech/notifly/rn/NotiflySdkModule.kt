@@ -16,12 +16,19 @@ import tech.notifly.sdk.NotiflySdkWrapperType
 import tech.notifly.push.interfaces.INotificationClickEvent
 import tech.notifly.push.interfaces.INotificationClickListener
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
 var isNativeNotificationClickListenerRegistered = false
 
 class NotiflyControlTokenImpl : NotiflySdkControlToken
 
 class NotiflySdkModule internal constructor(private val reactContext: ReactApplicationContext) :
   NotiflySdkSpec(reactContext) {
+
+  private val moduleScope = CoroutineScope(Dispatchers.Default)
 
   override fun getName(): String {
     return NAME
@@ -35,7 +42,7 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkWrapperType.REACT_NATIVE)
       Notifly.setSdkVersion(
         NotiflyControlTokenImpl(),
-        "3.6.2"
+        "3.7.0"
       )
 
       Notifly.initialize(context, projectId, username, password)
@@ -53,6 +60,20 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       promise.resolve(null)
     } catch (e: Exception) {
       promise.reject(e)
+    }
+  }
+
+  @ReactMethod
+  override fun getNotiflyUserId(promise: Promise) {
+    moduleScope.launch {
+      try {
+        val notiflyUserId = withContext(Dispatchers.IO) {
+          Notifly.getNotiflyUserId(reactContext)
+        }
+        promise.resolve(notiflyUserId)
+      } catch (e: Exception) {
+        promise.reject(e)
+      }
     }
   }
 

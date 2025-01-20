@@ -16,6 +16,8 @@ RCT_EXTERN_METHOD(setTimezone:(NSString)timezone withResolver:(RCTPromiseResolve
 
 RCT_EXTERN_METHOD(trackEvent:(NSString)eventName withEventParams:(NSString _Nullable)eventParams withSegmentationEventParamKeys:(NSArray _Nullable)segmentationEventParamKeys withResolver:(RCTPromiseResolveBlock)resolve withRejecter:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(getNotiflyUserId:(RCTPromiseResolveBlock)resolve withRejecter:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(disableInAppMessage:
     (RCTPromiseResolveBlock)resolve
     rejecter:(RCTPromiseRejectBlock)reject)
