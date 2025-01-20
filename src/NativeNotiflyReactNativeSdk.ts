@@ -12,7 +12,7 @@ export interface Spec extends TurboModule {
   setEmail(email: string): Promise<void>;
   setPhoneNumber(phoneNumber: string): Promise<void>;
   setTimezone(timezone: string): Promise<void>;
-  getNotiflyUserId(): Promise<string | null | undefined>;
+  getNotiflyUserId(): Promise<string | null>;
   trackEvent(
     eventName: string,
     eventParams: EventProperties | null | undefined,
