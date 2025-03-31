@@ -1,9 +1,10 @@
 #import <Firebase.h>
 #import <React/RCTBundleURLProvider.h>
-#import <UserNotifications/uNUserNotificationCenter.h>
+#import <UserNotifications/UserNotifications.h>
 #import "AppDelegate.h"
 #import "notifly_sdk-Swift.h"
 #import <React/RCTLinkingManager.h> // for linking
+#import <React/RCTBridge.h>
 
 @implementation AppDelegate
 
@@ -11,11 +12,11 @@
   self.moduleName = @"NotiflySdkExample";
   self.initialProps = @{};
   [FIRApp configure];
-    
+
   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
   center.delegate = self;
   [[UIApplication sharedApplication] registerForRemoteNotifications];
-  
+
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
@@ -51,22 +52,22 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 }
 
 - (BOOL)application:(UIApplication *)application
-   openURL:(NSURL *)url
-   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
-{
+           openURL:(NSURL *)url
+           options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
   return [RCTLinkingManager application:application openURL:url options:options];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
- #if DEBUG
-   return
-      [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
- #else
-  return [[NSBundle mainBundle] URLForResource:@"main"
-                                 withExtension:@"jsbundle"];
- #endif
+  return [self bundleURL];
 }
 
+- (NSURL *)bundleURL {
+#if DEBUG
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+#else
+  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
+}
 /// This method controls whether the `concurrentRoot`feature of React18 is
 /// turned on or off.
 ///
@@ -76,9 +77,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 /// @return: `true` if the `concurrentRoot` feature is enabled. Otherwise, it
 /// returns `false`.
 - (BOOL)concurrentRootEnabled {
-  return true;
+  return YES;
 }
 
 @end
-
-
