@@ -1,15 +1,18 @@
 #import <Firebase.h>
 #import <React/RCTBundleURLProvider.h>
+#import <ReactAppDependencyProvider/RCTAppDependencyProvider.h>
 #import <UserNotifications/UserNotifications.h>
 #import "AppDelegate.h"
 #import "notifly_sdk-Swift.h"
 #import <React/RCTLinkingManager.h> // for linking
 #import <React/RCTBridge.h>
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   self.moduleName = @"NotiflySdkExample";
+  self.dependencyProvider = [RCTAppDependencyProvider new];
   self.initialProps = @{};
   [FIRApp configure];
 
