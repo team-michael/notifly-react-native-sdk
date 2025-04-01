@@ -21,7 +21,6 @@ target 'NotiflySdkExample' do
   $RNFirebaseAsStaticFramework = true
   pod 'GoogleUtilities', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
-  pod 'notifly_sdk', :git => 'https://github.com/team-michael/notifly-ios-sdk.git', :branch => 'main'
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -35,7 +34,7 @@ end
 
 target 'NotiflyNotificationExtension' do
   use_frameworks! :linkage => :static
-  pod 'notifly_sdk_push_extension', :git => 'https://github.com/team-michael/notifly-ios-sdk.git', :branch => 'main'
+  pod 'notifly_sdk_push_extension'
 end
 
 post_install do |installer|
