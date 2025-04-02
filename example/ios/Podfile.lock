@@ -124,7 +124,7 @@ PODS:
     - nanopb/encode (= 3.30910.0)
   - nanopb/decode (3.30910.0)
   - nanopb/encode (3.30910.0)
-  - notifly_react_native_sdk (3.7.0):
+  - notifly_react_native_sdk (4.0.0-beta.1):
     - notifly_sdk (= 1.16.3)
     - RCT-Folly
     - RCTRequired
@@ -2065,7 +2065,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
   hermes-engine: 8eb265241fa1d7095d3a40d51fd90f7dce68217c
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
-  notifly_react_native_sdk: e35ce1bba14c01d1d5db33344ed63b7d0d00b516
+  notifly_react_native_sdk: ec02615b5b301022f1f56570efd89ead2e70fcef
   notifly_sdk: 7e3bdd5ffac2dafaf495dab7770f7e9e1b5229a3
   notifly_sdk_push_extension: 57ad5b6d2ecf773c373f470500fa0bfaa9b039ef
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
