@@ -1,32 +1,29 @@
 package tech.notifly.rn
 
-import android.util.Log
 import android.content.Context
-
+import android.util.Log
+import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
-import com.facebook.react.bridge.Promise
 import com.facebook.react.modules.core.DeviceEventManagerModule
-
-import tech.notifly.Notifly
-import tech.notifly.sdk.NotiflySdkControlToken
-import tech.notifly.sdk.NotiflySdkWrapperType
-import tech.notifly.push.interfaces.INotificationClickEvent
-import tech.notifly.push.interfaces.INotificationClickListener
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import tech.notifly.Notifly
+import tech.notifly.push.interfaces.INotificationClickEvent
+import tech.notifly.push.interfaces.INotificationClickListener
+import tech.notifly.sdk.NotiflySdkControlToken
+import tech.notifly.sdk.NotiflySdkWrapperType
 
 var isNativeNotificationClickListenerRegistered = false
 
 class NotiflyControlTokenImpl : NotiflySdkControlToken
 
 class NotiflySdkModule internal constructor(private val reactContext: ReactApplicationContext) :
-  NotiflySdkSpec(reactContext) {
+        NotiflySdkSpec(reactContext) {
 
   private val moduleScope = CoroutineScope(Dispatchers.Default)
 
@@ -40,10 +37,14 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       val context: Context = reactContext.currentActivity ?: reactContext.applicationContext
 
       Notifly.setSdkType(NotiflyControlTokenImpl(), NotiflySdkWrapperType.REACT_NATIVE)
+<<<<<<< HEAD
       Notifly.setSdkVersion(
         NotiflyControlTokenImpl(),
         "3.10.1"
       )
+=======
+      Notifly.setSdkVersion(NotiflyControlTokenImpl(), "4.0.0-beta.2")
+>>>>>>> 978e1e8 (feat: support react native new architecture (#42))
 
       Notifly.initialize(context, projectId, username, password)
 
@@ -67,9 +68,7 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   override fun getNotiflyUserId(promise: Promise) {
     moduleScope.launch {
       try {
-        val notiflyUserId = withContext(Dispatchers.IO) {
-          Notifly.getNotiflyUserId(reactContext)
-        }
+        val notiflyUserId = withContext(Dispatchers.IO) { Notifly.getNotiflyUserId(reactContext) }
         promise.resolve(notiflyUserId)
       } catch (e: Exception) {
         promise.reject(e)
@@ -108,31 +107,30 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
 
   @ReactMethod
   override fun trackEvent(
-    eventName: String,
-    params: ReadableMap?,
-    segmentationEventParamKeys: ReadableArray?,
-    promise: Promise
+          eventName: String,
+          params: ReadableMap?,
+          segmentationEventParamKeys: ReadableArray?,
+          promise: Promise
   ) {
     try {
       val mapParams = params?.toHashMap() ?: emptyMap<String, Any?>()
       val listKeys = segmentationEventParamKeys?.toArrayList()?.map { it.toString() }
       Notifly.trackEvent(
-        reactContext,
-        eventName,
-        mapParams,
-        listKeys,
+              reactContext,
+              eventName,
+              mapParams,
+              listKeys,
       )
       promise.resolve(null)
     } catch (e: Exception) {
       promise.reject(e)
     }
-
   }
 
   @ReactMethod
-  override fun setLogLevel(logLevel: Int, promise: Promise) {
+  override fun setLogLevel(logLevel: Double, promise: Promise) {
     try {
-      Notifly.setLogLevel(logLevel)
+      Notifly.setLogLevel(logLevel.toInt())
       promise.resolve(null)
     } catch (e: Exception) {
       promise.reject(e)
@@ -156,17 +154,19 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
       return
     }
     try {
-      Notifly.addNotificationClickListener(object : INotificationClickListener {
-        override fun onClick(event: INotificationClickEvent) {
-          Log.d("NotiflyRNSdk", "Notification clicked")
-          sendEvent(
-            "Notifly#NotificationClicked",
-            NotiflySdkUtils.convertHashMapToWritableMap(
-              NotiflySdkUtils.convertNotificationClickEventToMap(event)
-            )
-          )
-        }
-      })
+      Notifly.addNotificationClickListener(
+              object : INotificationClickListener {
+                override fun onClick(event: INotificationClickEvent) {
+                  Log.d("NotiflyRNSdk", "Notification clicked")
+                  sendEvent(
+                          "Notifly#NotificationClicked",
+                          NotiflySdkUtils.convertHashMapToWritableMap(
+                                  NotiflySdkUtils.convertNotificationClickEventToMap(event)
+                          )
+                  )
+                }
+              }
+      )
       isNativeNotificationClickListenerRegistered = true
       promise.resolve(null)
     } catch (e: Exception) {
@@ -177,8 +177,8 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   private fun sendEvent(eventName: String, params: Any) {
     Log.d("NotiflyRNSdk", "Sending event $eventName with params $params")
     reactContext
-      .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-      .emit(eventName, params)
+            .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+            .emit(eventName, params)
   }
 
   companion object {

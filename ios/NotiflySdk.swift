@@ -9,13 +9,14 @@ class NotiflyReactNativeSdk: NSObject {
     reject _: RCTPromiseRejectBlock
   ) {
     Notifly.setSdkType(type: "react_native")
-    Notifly.setSdkVersion(version: "3.10.1") // TODO: get version from package.json
+    Notifly.setSdkVersion(version: "4.0.0") // TODO: get version from package.json
     Notifly.initialize(projectId: projectId, username: username, password: password)
     resolve(nil)
   }
 
   @objc(setUserId:withResolver:withRejecter:)
-  func setUserId(userId: String?, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock) {
+  func setUserId(userId: String?, resolve: RCTPromiseResolveBlock, reject _: RCTPromiseRejectBlock)
+  {
     Notifly.setUserId(userId: userId)
     resolve(nil)
   }
