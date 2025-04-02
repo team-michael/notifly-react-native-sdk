@@ -49,9 +49,18 @@ jobs:
       - name: Build package
         run: npm run build
 
-      - name: Publish to npm
+      - name: Publish beta version to npm
+        if: contains(github.event.inputs.version, 'beta')
         run: |
-          echo "Publishing to notifly-sdk..."
+          echo "Publishing to notifly-sdk as beta version..."
+          npm publish --tag beta
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish stable version to npm
+        if: ${{ !contains(github.event.inputs.version, 'beta') }}
+        run: |
+          echo "Publishing to notifly-sdk as stable version..."
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
