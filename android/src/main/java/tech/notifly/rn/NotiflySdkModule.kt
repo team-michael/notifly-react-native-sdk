@@ -121,17 +121,7 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
   }
 
   @ReactMethod
-  override fun setLogLevel(logLevel: Int, promise: Promise) {
-    try {
-      Notifly.setLogLevel(logLevel)
-      promise.resolve(null)
-    } catch (e: Exception) {
-      promise.reject(e)
-    }
-  }
-
-  @ReactMethod
-  fun setLogLevel(logLevel: Double, promise: Promise) {
+  override fun setLogLevel(logLevel: Double, promise: Promise) {
     try {
       Notifly.setLogLevel(logLevel.toInt())
       promise.resolve(null)
