@@ -24,11 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Version update
-        run: |
-          echo "Bumping version to ${{ github.event.inputs.version }}"
-          npm version ${{ github.event.inputs.version }} --no-git-tag-version
-
       - name: Read Changelog
         id: read_changelog
         if: ${{ !endsWith(github.event.inputs.version, 'SNAPSHOT') }}
