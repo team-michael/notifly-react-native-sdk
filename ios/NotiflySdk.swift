@@ -9,7 +9,7 @@ class NotiflyReactNativeSdk: NSObject {
     reject _: RCTPromiseRejectBlock
   ) {
     Notifly.setSdkType(type: "react_native")
-    Notifly.setSdkVersion(version: "3.7.0") // TODO: get version from package.json
+    Notifly.setSdkVersion(version: "3.8.0") // TODO: get version from package.json
     Notifly.initialize(projectId: projectId, username: username, password: password)
     resolve(nil)
   }
