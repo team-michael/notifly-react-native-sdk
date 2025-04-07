@@ -1,5 +1,15 @@
 ## Example app for Notifly React Native SDK
 
+## .env file
+
+Create .env file with this format.
+
+```.env
+NOTIFLY_PROJECT_ID=
+NOTIFLY_USERNAME=
+NOTIFLY_PASSWORD=
+```
+
 ### Android
 
 Make sure you have `google-services.json` under `/example` or `/example/android/app`. Package name: `com.notiflysdkexample`.
