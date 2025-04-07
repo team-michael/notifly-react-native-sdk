@@ -56,7 +56,7 @@ export default class EventReceiver {
           : payload;
       } catch (e) {
         console.error(
-          '[Notifly React Native SDK] Error while parsing rawPayload. Payload will be returned as is.'
+          '[Notifly React Native SDK] Error while parsing rawPayload. Payload will be returned as is.', e
         );
         return payload;
       }
