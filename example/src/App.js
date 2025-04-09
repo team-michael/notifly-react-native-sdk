@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
 
@@ -21,10 +21,11 @@ const linking = {
   },
 };
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App({ setAppMode }) {
   const [result, setResult] = React.useState(null);
+
   React.useEffect(() => {
     const requestPermission = async () => {
       await messaging().requestPermission();
