@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mmm,swift}"
 
-  s.dependency "notifly_sdk", "1.16.3"
+  s.dependency "notifly_sdk", "1.17.0"
   s.dependency "React-Core"
 
   # Don't install the dependencies when we run `pod install` in the old architecture.
