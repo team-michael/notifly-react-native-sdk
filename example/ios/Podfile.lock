@@ -124,7 +124,7 @@ PODS:
     - nanopb/encode (= 3.30910.0)
   - nanopb/decode (3.30910.0)
   - nanopb/encode (3.30910.0)
-  - notifly_react_native_sdk (4.0.0-beta.2):
+  - notifly_react_native_sdk (4.0.0):
     - notifly_sdk (= 1.16.3)
     - RCT-Folly
     - RCTRequired
