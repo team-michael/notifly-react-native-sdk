@@ -1,5 +1,4 @@
 import { type TurboModule, TurboModuleRegistry } from 'react-native';
-import { type UserProperties, type EventProperties } from './types';
 
 export interface Spec extends TurboModule {
   initialize(
@@ -8,14 +7,14 @@ export interface Spec extends TurboModule {
     password: string
   ): Promise<void>;
   setUserId(userId: string | null | undefined): Promise<void>;
-  setUserProperties(userProperties: UserProperties): Promise<void>;
+  setUserProperties(userProperties: Object): Promise<void>;
   setEmail(email: string): Promise<void>;
   setPhoneNumber(phoneNumber: string): Promise<void>;
   setTimezone(timezone: string): Promise<void>;
   getNotiflyUserId(): Promise<string | null>;
   trackEvent(
     eventName: string,
-    eventParams: EventProperties | null | undefined,
+    eventParams: Object | null | undefined,
     segmentationEventParamKeys: string[] | undefined | null
   ): Promise<void>;
   setLogLevel(logLevel: number): Promise<void>;
