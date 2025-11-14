@@ -1,7 +1,7 @@
 <!-- repo: team-michael/notifly-react-native-sdk -->
 <!-- ref: main -->
-<!-- commit: 9a45a2656b34bfd407e8b476e9b99af184302b16 -->
-<!-- generated_at: 2025-11-14T03:59:19Z -->
+<!-- commit: 87744d9c52c7b03d54265574c585d3d76f7f1c4e -->
+<!-- generated_at: 2025-11-14T04:39:30Z -->
 # Platform: React Native
 
 ## android/src/main/java/tech/notifly/rn
