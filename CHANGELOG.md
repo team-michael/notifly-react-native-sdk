@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.1] - 2025-11-21
+
+### Changed
+
+- Bump Android SDK to 1.18.6 that forces software rendering for in-app message WebView to avoid hardware acceleration issues on Samsung Galaxy S25 Edge device family.
+
 ## [4.0.0] - 2025-11-06
 
 ### Added
