@@ -83,17 +83,22 @@ PODS:
     - nanopb/encode (= 3.30910.0)
   - nanopb/decode (3.30910.0)
   - nanopb/encode (3.30910.0)
-  - notifly_react_native_sdk (4.0.1):
-    - notifly_sdk (= 2.1.0)
+  - notifly_react_native_sdk (4.0.2):
+    - notifly_sdk (= 2.2.0)
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
     - React-Core
-  - notifly_sdk (2.1.0):
-    - notifly_sdk/Extension (= 2.1.0)
-    - notifly_sdk/Full (= 2.1.0)
-  - notifly_sdk/Extension (2.1.0)
-  - notifly_sdk/Full (2.1.0):
+    - ReactCommon/turbomodule/core
+  - notifly_sdk (2.2.0):
+    - notifly_sdk/Extension (= 2.2.0)
+    - notifly_sdk/Full (= 2.2.0)
+  - notifly_sdk/Extension (2.2.0)
+  - notifly_sdk/Full (2.2.0):
     - FirebaseCore (< 20.0.0, >= 10.0.0)
     - FirebaseMessaging (< 20.0.0, >= 10.0.0)
-  - notifly_sdk_push_extension (2.1.0)
+  - notifly_sdk_push_extension (2.2.0)
   - PromisesObjC (2.4.0)
   - RCT-Folly (2024.11.18.00):
     - boost
@@ -134,6 +139,7 @@ PODS:
     - React-RCTText (= 0.77.2)
     - React-RCTVibration (= 0.77.2)
   - React-callinvoker (0.77.2)
+  - React-Codegen (0.1.0)
   - React-Core (0.77.2):
     - glog
     - hermes-engine
@@ -1298,7 +1304,71 @@ PODS:
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
   - react-native-safe-area-context (5.3.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
     - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - react-native-safe-area-context/common (= 5.3.0)
+    - react-native-safe-area-context/fabric (= 5.3.0)
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - react-native-safe-area-context/common (5.3.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - react-native-safe-area-context/fabric (5.3.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - react-native-safe-area-context/common
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-webview (13.13.4):
     - DoubleConversion
     - glog
@@ -1627,6 +1697,7 @@ PODS:
     - React-Core
     - React-debug
     - React-Fabric
+    - React-FabricComponents
     - React-featureflags
     - React-graphics
     - React-ImageManager
@@ -1639,6 +1710,29 @@ PODS:
     - ReactCommon/turbomodule/core
     - Yoga
   - RNScreens (4.9.2):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-RCTImage
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - RNScreens/common (= 4.9.2)
+    - Yoga
+  - RNScreens/common (4.9.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1757,6 +1851,7 @@ SPEC REPOS:
     - notifly_sdk
     - notifly_sdk_push_extension
     - PromisesObjC
+    - React-Codegen
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -1925,9 +2020,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   hermes-engine: 8eb265241fa1d7095d3a40d51fd90f7dce68217c
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
-  notifly_react_native_sdk: 9b88afe574fc776402754c3367b4e46f32bc2bb3
-  notifly_sdk: 923ce59d5bc96267c23ca0cadb13f5da65f5c17d
-  notifly_sdk_push_extension: 254e7e2d7b49c0ea123def0bc1613162a2a021e3
+  notifly_react_native_sdk: 3b5f659725a24ade061ae42be7179fc10b4bc2fd
+  notifly_sdk: 91064c38e900d2563a91219a067fa005503373af
+  notifly_sdk_push_extension: a33563f11cfd6b6852d5e23e8c68698b06601b75
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RCT-Folly: e78785aa9ba2ed998ea4151e314036f6c49e6d82
   RCTDeprecation: 85b72250b63cfb54f29ca96ceb108cb9ef3c2079
@@ -1935,6 +2030,7 @@ SPEC CHECKSUMS:
   RCTTypeSafety: 5e57924492a5e0a762654f814dd018953274eca9
   React: 53c9bd6f974c5dd019ee466e46477eb679149c38
   React-callinvoker: d6484472c1c742917b51338525336d6a74ab8a9f
+  React-Codegen: 4b8b4817cea7a54b83851d4c1f91f79aa73de30a
   React-Core: 4ddb741e08144902ce4e0e66b7c67c6f2dc5bfc7
   React-CoreModules: 0a31ca662ac169edd0c210efd324e19b3012d7ed
   React-cxxreact: f8ecc64ebf8b795c550ae8b65ba4908ffe7350d0
@@ -1958,18 +2054,18 @@ SPEC CHECKSUMS:
   React-logger: 592d84bed2e04db64c0b3725f9970b437473f3d3
   React-Mapbuffer: 0341d6efffcd02a6cd981bd254216adebb41ffb2
   React-microtasksnativemodule: 219f08edd8d580020751fa388e1167c59ab8c160
-  react-native-safe-area-context: fdb0a66feac038cb6eb1edafcf2ccee2b5cf0284
-  react-native-webview: 0a2c3ea8c4e012540ab37a4edc95ac1521d55a9c
+  react-native-safe-area-context: 33fadf89988c8813cfac57797a3bc53708863dd1
+  react-native-webview: bbc90f70233e58004d8df887437477a2659ab32d
   React-nativeconfig: 75658bde8f977492f668e94ae8eb9c0dfef7ed94
   React-NativeModulesApple: 2e3b55255a2d3e35645f61a648c37cb80cf12ab0
   React-perflogger: 1111b5feb064c4cc83df88fb403efda54b387951
   React-performancetimeline: 0f4f0f6ca1c46ac917e48c54007db30d8c2ce31e
   React-RCTActionSheet: 150cfe1df4275db2251a2a4a1b22be3294e94ef7
   React-RCTAnimation: 1de976f7a660429c39e20a81a728eb0102226f9b
-  React-RCTAppDelegate: 4d0243b352cd6c12744ffaa1b7e6aa90eaa3c291
+  React-RCTAppDelegate: 5ec33437d41ed6158b344afa6860a5e2fd4ed538
   React-RCTBlob: 27c8f8fa6cb47cd4cb422d74d015722f01835493
-  React-RCTFabric: 54d5991c59970452e7f55a07d7b86d1d36c33974
-  React-RCTFBReactNativeSpec: e7554dd3838a0d17e2e361e737ede98dfe2ebc9c
+  React-RCTFabric: 9d7f0818052ce590093be6e9c3d9a0eabbf85ff8
+  React-RCTFBReactNativeSpec: f50e55a68595850c35909c76b7dcfca2655db6fe
   React-RCTImage: 148afd89e4de0c36b87df0d1e8c0007fa89fb055
   React-RCTLinking: 389458d08b891fa0a03e4c2cee545ebff341d06f
   React-RCTNetwork: a78572948341ef0f9438b2d1cd685be564256518
@@ -1991,8 +2087,8 @@ SPEC CHECKSUMS:
   ReactCommon: 454d8d052ee8d5620e0b62c30eaf8b6bc8392f8d
   RNFBApp: 40dddac677bdc020c7669ffc52ed849930b8c694
   RNFBMessaging: f0760e86d85a314e39281301b4ea3e337ef12d96
-  RNGestureHandler: b64463a3d975bda9abc7dc1bbd7875c8217c1f40
-  RNScreens: d7a433214a7afd1c858747d8aceb5ae551bdda43
+  RNGestureHandler: f7b3a72c099e1e29b5b81688678bc9108d44057c
+  RNScreens: 2e4870e8f9cb4a77e5a51530729f2762868316df
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: fdc0542faa3ba87e56f2030b3f3f2e21bc3ba01c
 
