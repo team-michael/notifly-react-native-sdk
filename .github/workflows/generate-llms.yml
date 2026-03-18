@@ -1,19 +1,19 @@
-name: Generate CLIX React Native LLMS
+name: Generate LLMS
 
 on:
   workflow_dispatch:
     inputs:
       llm_mode:
-        description: 'Generation mode'
+        description: "Generation mode"
         type: choice
         options: [changed, all]
         default: changed
       base:
-        description: 'Base ref/tag/sha for compare (optional)'
+        description: "Base ref/tag/sha for compare (optional)"
         type: string
         required: false
       head:
-        description: 'Head ref/tag/sha for compare (optional)'
+        description: "Head ref/tag/sha for compare (optional)"
         type: string
         required: false
   release:
@@ -140,9 +140,9 @@ jobs:
           script: |
             const defaultBranch = context.payload.repository.default_branch;
             const head = process.env.BRANCH;
-            const title = 'chore: update CLIX React Native LLMS index';
+            const title = 'chore: update LLMS index';
             const body = [
-              'This PR updates the generated CLIX React Native SDK LLMS index.',
+              'This PR updates the generated LLMS index.',
               '',
               `- Triggered by: ${context.eventName}`,
               `- Range: ${process.env.COMPARE || '(none / full)'}`
