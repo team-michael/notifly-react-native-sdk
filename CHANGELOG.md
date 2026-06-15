@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.2.0] - 2026-06-15
+
+### Changed
+
+- Bump Android SDK to 1.21.0: ad push opt-out ("수신거부") area in expanded notifications.
+- Bump iOS SDK to 2.6.0: ad push opt-out ("수신거부") action on notification long-press.
+
 ## [4.1.1] - 2026-06-10
 
 ### Fixed
