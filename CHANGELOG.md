@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.4.0] - 2026-09-07
+
+### Fixed
+
+- Bump Android SDK to 1.23.0: include the current local event in count targeting, generate unique event IDs, and reuse retry payloads.
+- Bump iOS SDK to 2.7.0: track events before APNs token registration completes.
+
 ## [4.3.0] - 2026-09-02
 
 ### Fixed
