@@ -6,18 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.5.0] - 2026-09-21
 
-### Added
-
-- Support server-rendered in-app popup personalization through Android SDK `1.24.0` and iOS SDK `2.8.0`, including Liquid, catalogs, Connected Content, and render-abort handling.
-- Forward existing tracked event context through the native SDKs for popup personalization. Static popups keep their existing URL-based behavior, and failed or aborted renders do not fall back to unrendered templates.
-
 ### Changed
 
-- Upgrade Android SDK from `1.23.0` to `1.24.0` and iOS SDK from `2.7.0` to `2.8.0`; align the example push extension with iOS `2.8.0`.
-- Adopt the native SDKs' shared KMP Core for user ID transitions, state synchronization, merging, and clearing, without adding React Native APIs.
-- Inherit the native SDKs' five-second suppression of unchanged `setUserProperties` calls when local in-app messaging state is available. Changed values still send normally, skipped calls do not extend the window, and identity changes reset it.
-- Align the package, npm lockfile, and Android/iOS reported wrapper SDK versions at stable `4.5.0`.
-- Validate release input against the package version instead of modifying it during publication; build before creating the GitHub release, target the checked-out commit, and publish stable, alpha, beta, and snapshot versions under their respective npm tags.
+- Upgrade Android SDK to `1.24.0` and iOS SDK to `2.8.0` for KMP-based popup personalization and shared user ID handling.
+- Inherit five-second suppression of unchanged user-property updates.
+- Align package and wrapper versions at `4.5.0` without public API changes.
+- Validate release versions and separate stable and prerelease publication channels.
 
 ## [4.5.0-alpha.1] - 2026-09-14
 
