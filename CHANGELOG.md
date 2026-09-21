@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.0] - 2026-09-21
+
+### Changed
+
+- Bump Android SDK to 1.24.0 and iOS SDK to 2.8.0 for server-rendered popup personalization.
+- Align the package and reported wrapper SDK versions at 4.5.0. No React Native API changes are required.
+
 ## [4.5.0-alpha.1] - 2026-09-14
 
 ### Changed
