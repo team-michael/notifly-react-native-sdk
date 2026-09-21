@@ -83,22 +83,22 @@ PODS:
     - nanopb/encode (= 3.30910.0)
   - nanopb/decode (3.30910.0)
   - nanopb/encode (3.30910.0)
-  - notifly_core (2.8.0-alpha.1)
-  - notifly_react_native_sdk (4.5.0-alpha.1):
-    - notifly_sdk (= 2.8.0-alpha.1)
+  - notifly_core (2.8.0)
+  - notifly_react_native_sdk (4.5.0):
+    - notifly_sdk (= 2.8.0)
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
     - React-Codegen
     - React-Core
     - ReactCommon/turbomodule/core
-  - notifly_sdk (2.8.0-alpha.1):
-    - notifly_sdk/Full (= 2.8.0-alpha.1)
-  - notifly_sdk/Full (2.8.0-alpha.1):
+  - notifly_sdk (2.8.0):
+    - notifly_sdk/Full (= 2.8.0)
+  - notifly_sdk/Full (2.8.0):
     - FirebaseCore (< 20.0.0, >= 10.0.0)
     - FirebaseMessaging (< 20.0.0, >= 10.0.0)
-    - notifly_core (= 2.8.0-alpha.1)
-  - notifly_sdk_push_extension (2.8.0-alpha.1)
+    - notifly_core (= 2.8.0)
+  - notifly_sdk_push_extension (2.8.0)
   - PromisesObjC (2.4.0)
   - RCT-Folly (2024.11.18.00):
     - boost
@@ -1768,7 +1768,7 @@ DEPENDENCIES:
   - GoogleUtilities
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - notifly_react_native_sdk (from `../..`)
-  - notifly_sdk_push_extension (= 2.8.0-alpha.1)
+  - notifly_sdk_push_extension (= 2.8.0)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
@@ -2021,10 +2021,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   hermes-engine: 8eb265241fa1d7095d3a40d51fd90f7dce68217c
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
-  notifly_core: 01bbf754cbf67b416f0091f9b649ba8fba0665c4
-  notifly_react_native_sdk: 57855ca5e2ef3b0280c32b362ca296078f65607b
-  notifly_sdk: 0d52743ebb6916ef8b9b31a339afb7dd9be1ffd2
-  notifly_sdk_push_extension: 928d3c41e71a3c1780efa1eb5b5486926c183e46
+  notifly_core: 37df353bd7593adf0b9ff21763a69e1cfeb00076
+  notifly_react_native_sdk: 55baff6ec9c6fb9a0f19f8e035a7bda3cf55c4e1
+  notifly_sdk: a275a501eb83978f66ef12c89ef9ad88ef4ab168
+  notifly_sdk_push_extension: face413d746b8310ea18a814116bb72600f9afdc
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RCT-Folly: e78785aa9ba2ed998ea4151e314036f6c49e6d82
   RCTDeprecation: 85b72250b63cfb54f29ca96ceb108cb9ef3c2079
@@ -2094,6 +2094,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: fdc0542faa3ba87e56f2030b3f3f2e21bc3ba01c
 
-PODFILE CHECKSUM: 0c505b89c925bf0d2631db65e68a3a3d8764c1ad
+PODFILE CHECKSUM: 2270414e6eee814cefd37cb7f47029b7df918ba2
 
 COCOAPODS: 1.16.2
