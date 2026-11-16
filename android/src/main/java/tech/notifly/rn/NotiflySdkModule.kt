@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.UiThreadUtil
 import com.facebook.react.modules.core.DeviceEventManagerModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +16,8 @@ import kotlinx.coroutines.withContext
 import tech.notifly.Notifly
 import tech.notifly.push.interfaces.INotificationClickEvent
 import tech.notifly.push.interfaces.INotificationClickListener
+import tech.notifly.push.interfaces.IInAppMessageEventListener
+import java.lang.ref.WeakReference
 import tech.notifly.sdk.NotiflySdkControlToken
 import tech.notifly.sdk.NotiflySdkWrapperType
 
@@ -26,6 +29,29 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
         NotiflySdkSpec(reactContext) {
 
   private val moduleScope = CoroutineScope(Dispatchers.Default)
+  private var inAppMessageListenerRegistered = false
+
+  @ReactMethod
+  override fun addListener(eventName: String) {
+    UiThreadUtil.runOnUiThread {
+      if (eventName != IN_APP_MESSAGE_EVENT || inAppMessageListenerRegistered) return@runOnUiThread
+      val contextRef = WeakReference(reactContext)
+      Notifly.addInAppMessageEventListener(object : IInAppMessageEventListener {
+        override fun handleEvent(eventName: String, eventParams: Map<String, Any?>?) {
+          val context = contextRef.get() ?: return
+          if (!context.hasActiveReactInstance()) return
+          context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+              .emit(IN_APP_MESSAGE_EVENT,
+                  NotiflySdkUtils.convertInAppMessageEventToMap(eventName, eventParams))
+        }
+      })
+      inAppMessageListenerRegistered = true
+    }
+  }
+
+  @ReactMethod
+  // NativeEventEmitter requires this method; JS subscriptions handle removal.
+  override fun removeListeners(count: Double) {}
 
   override fun getName(): String {
     return NAME
@@ -176,5 +202,6 @@ class NotiflySdkModule internal constructor(private val reactContext: ReactAppli
 
   companion object {
     const val NAME = "NotiflyReactNativeSdk"
+    private const val IN_APP_MESSAGE_EVENT = "Notifly#InAppMessageEvent"
   }
 }

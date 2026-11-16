@@ -26,4 +26,6 @@ abstract class NotiflySdkSpec internal constructor(context: ReactApplicationCont
   abstract fun setLogLevel(logLevel: Double, promise: Promise)
   abstract fun disableInAppMessage(promise: Promise)
   abstract fun addNotificationClickListener(promise: Promise)
+  abstract fun addListener(eventName: String)
+  abstract fun removeListeners(count: Double)
 }

@@ -2,7 +2,36 @@ import Foundation
 import notifly_sdk
 
 @objc(NotiflyReactNativeSdk)
-class NotiflyReactNativeSdk: NSObject {
+class NotiflyReactNativeSdk: RCTEventEmitter {
+  private static let inAppMessageEvent = "Notifly#InAppMessageEvent"
+  private var hasInAppMessageListeners = false
+
+  override var methodQueue: DispatchQueue! { DispatchQueue.main }
+
+  override func supportedEvents() -> [String]! {
+    [Self.inAppMessageEvent]
+  }
+
+  override func startObserving() {
+    hasInAppMessageListeners = true
+  }
+
+  override func stopObserving() {
+    hasInAppMessageListeners = false
+  }
+
+  private func connectInAppMessageListener() {
+    Notifly.addInAppMessageEventListener { [weak self] eventName, eventParams in
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self, self.hasInAppMessageListeners else { return }
+        self.sendEvent(withName: Self.inAppMessageEvent, body: [
+          "eventName": eventName,
+          "eventParams": eventParams as Any? ?? NSNull(),
+        ])
+      }
+    }
+  }
+
   @objc(initialize:withUsername:withPassword:withResolver:withRejecter:)
   func initialize(
     projectId: String, username: String, password: String, resolve: RCTPromiseResolveBlock,
@@ -11,6 +40,7 @@ class NotiflyReactNativeSdk: NSObject {
     Notifly.setSdkType(type: "react_native")
     Notifly.setSdkVersion(version: "4.5.2")  // TODO: get version from package.json
     Notifly.initialize(projectId: projectId, username: username, password: password)
+    connectInAppMessageListener()
     resolve(nil)
   }
 

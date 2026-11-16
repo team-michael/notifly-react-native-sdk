@@ -25,3 +25,20 @@ Please refer to our official documentation:
 
 * [English documentation](https://docs.notifly.tech/developer-guide/client-sdk/react-native-sdk)
 * [Korean documentation](https://docs.notifly.tech/ko/developer-guide/client-sdk/react-native-sdk)
+
+### In-app popup events
+
+After initializing the SDK, subscribe on Android or iOS:
+
+```tsx
+useEffect(() => {
+  const subscription = notifly.addInAppMessageEventListener((event) => {
+    console.log(event.eventName, event.eventParams);
+  });
+  return () => subscription.remove();
+}, []);
+```
+
+The API is also available as a named export. Events use the native SDK's names
+and payloads unchanged; `eventParams` can be `null`. Each subscription is removed
+independently. Register before triggering a popup; past events are not replayed.

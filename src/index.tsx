@@ -1,10 +1,12 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
 import type {
   InitializeParams,
   EventProperties,
   UserProperties,
   NotificationClickListener,
   OSNotificationClickEvent,
+  InAppMessageEventListener,
+  InAppMessageSubscription,
 } from './types';
 import EventReceiver from './events/EventReceiver';
 import { EventNames } from './constants';
@@ -138,6 +140,18 @@ export function addNotificationClickListener(
   return Promise.resolve();
 }
 
+export function addInAppMessageEventListener(
+  listener: InAppMessageEventListener
+): InAppMessageSubscription {
+  if (!NotiflyReactNativeSdkModule) {
+    throw new Error(LINKING_ERROR);
+  }
+  return new NativeEventEmitter(NotiflyReactNativeSdkModule).addListener(
+    EventNames.IN_APP_MESSAGE_EVENT,
+    listener
+  );
+}
+
 const notifly = {
   initialize,
   setUserId,
@@ -150,6 +164,7 @@ const notifly = {
   setLogLevel,
   disableInAppMessage,
   addNotificationClickListener,
+  addInAppMessageEventListener,
 };
 
 export default notifly;
