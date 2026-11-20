@@ -1,6 +1,7 @@
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
-@interface RCT_EXTERN_MODULE(NotiflyReactNativeSdk, NSObject)
+@interface RCT_EXTERN_MODULE(NotiflyReactNativeSdk, RCTEventEmitter)
 
 RCT_EXTERN_METHOD(initialize:(NSString)projectId withUsername:(NSString)username withPassword:(NSString)password withResolver:(RCTPromiseResolveBlock)resolve withRejecter:(RCTPromiseRejectBlock)reject)
 

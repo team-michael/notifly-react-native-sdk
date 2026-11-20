@@ -3,12 +3,31 @@ package tech.notifly.rn
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.WritableMap
 import org.json.JSONException
+import org.json.JSONObject
+import org.json.JSONArray
 
 import tech.notifly.push.interfaces.INotificationClickEvent
 import tech.notifly.push.interfaces.INotificationClickListener
 import tech.notifly.push.interfaces.IPushNotification
 
 object NotiflySdkUtils {
+    fun convertInAppMessageEventToMap(
+        eventName: String,
+        eventParams: Map<String, Any?>?
+    ): WritableMap = Arguments.makeNativeMap(
+        mapOf("eventName" to eventName, "eventParams" to toBridgeValue(eventParams))
+    )
+
+    private fun toBridgeValue(value: Any?): Any? = when (value) {
+        null, JSONObject.NULL -> null
+        is JSONObject -> value.keys().asSequence().associateWith { toBridgeValue(value.get(it)) }
+        is JSONArray -> (0 until value.length()).map { toBridgeValue(value.get(it)) }
+        is Map<*, *> -> value.entries.associate { it.key.toString() to toBridgeValue(it.value) }
+        is List<*> -> value.map { toBridgeValue(it) }
+        is String, is Boolean, is Number -> value
+        else -> null
+    }
+
     @Throws(JSONException::class)
     fun convertHashMapToWritableMap(hashMap: HashMap<String, Any>): WritableMap {
         val writableMap: WritableMap = Arguments.createMap()

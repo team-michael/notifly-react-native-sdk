@@ -1,4 +1,5 @@
 export * from './notification';
+export * from './inAppMessage';
 
 export interface InitializeParams {
   projectId: string;
