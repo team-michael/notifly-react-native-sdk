@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.1] - 2026-11-26
+
+### Changed
+
+- Update the iOS SDK and example push extension to `2.9.0`. Existing user and device identifiers migrate from UserDefaults to Keychain.
+
 ## [4.6.0] - 2026-11-20
 
 ### Added

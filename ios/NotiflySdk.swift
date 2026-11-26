@@ -38,7 +38,7 @@ class NotiflyReactNativeSdk: RCTEventEmitter {
     reject _: RCTPromiseRejectBlock
   ) {
     Notifly.setSdkType(type: "react_native")
-    Notifly.setSdkVersion(version: "4.6.0")  // TODO: get version from package.json
+    Notifly.setSdkVersion(version: "4.6.1")  // TODO: get version from package.json
     Notifly.initialize(projectId: projectId, username: username, password: password)
     connectInAppMessageListener()
     resolve(nil)
